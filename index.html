@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
+<title>One Health Career Toolkit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  /* Layout: university-style page: thin scarlet stripe, white header with section nav, gray page-title band, white content, dark gray footer */
+  :root{
+    --scarlet:#BB0000; --scarlet-dark:#970000; --on-scarlet:#FFFFFF;
+    --bg:#FFFFFF; --band:#F1F2F2; --fg:#212326; --muted:#5A6064; --border:#D3D7D9; --surface:#FFFFFF;
+    --link:#A30000; --track:#E2E5E6; --foot:#2A2D30; --foot-fg:#E6E8E9; --focus:#1A5FB4; --mark:#FFE9A8; --mark-fg:#212326;
+    --serif:'Source Serif 4',Georgia,'Times New Roman',serif; --sans:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --scarlet:#C8262B; --scarlet-dark:#E5484D; --on-scarlet:#FFFFFF;
+      --bg:#151719; --band:#1E2123; --fg:#ECEEEF; --muted:#A4ABAF; --border:#34393C; --surface:#1A1D1F;
+      --link:#FF8E91; --track:#2B3033; --foot:#0F1112; --foot-fg:#C9CED1; --focus:#7DB2F5; --mark:#5A4A12; --mark-fg:#FFF3CC;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --scarlet:#C8262B; --scarlet-dark:#E5484D; --on-scarlet:#FFFFFF;
+    --bg:#151719; --band:#1E2123; --fg:#ECEEEF; --muted:#A4ABAF; --border:#34393C; --surface:#1A1D1F;
+    --link:#FF8E91; --track:#2B3033; --foot:#0F1112; --foot-fg:#C9CED1; --focus:#7DB2F5; --mark:#5A4A12; --mark-fg:#FFF3CC;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.55;margin:0}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;margin:0;text-wrap:balance;line-height:1.2}
+  p{margin:0}
+  button,input,select,textarea{font-family:inherit}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+  .inner{max-width:1000px;margin:0 auto;padding-inline:16px}
+
+  header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--border)}
+  .stripe{height:6px;background:var(--scarlet)}
+  .headrow{display:flex;align-items:flex-end;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;padding-top:12px}
+  .ptitle{display:flex;flex-direction:column;padding-bottom:10px}
+  .ptitle .proj{font-family:var(--serif);font-weight:700;font-size:1.35rem;line-height:1.1}
+  .ptitle .sub{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:3px}
+  nav.main{display:flex;gap:2px;overflow-x:auto;max-width:100%}
+  nav.main button,nav.main a{background:none;border:none;border-bottom:4px solid transparent;padding:10px 12px 8px;font-size:.95rem;font-weight:600;color:var(--fg);cursor:pointer;white-space:nowrap;text-decoration:none}
+  nav.main [aria-current="page"]{border-bottom-color:var(--scarlet)}
+  nav.main button:hover:not([aria-disabled="true"]),nav.main a:hover{border-bottom-color:var(--border)}
+  nav.main [aria-current="page"]:hover{border-bottom-color:var(--scarlet)}
+  nav.main [aria-disabled="true"]{color:var(--muted);cursor:default;font-weight:400}
+
+  .pagehead{background:var(--band);border-bottom:1px solid var(--border);padding-block:22px 26px}
+  .crumbs{font-size:.84rem;color:var(--muted);margin-bottom:8px}
+  .crumbs button{background:none;border:none;padding:0;color:var(--link);font-size:inherit;cursor:pointer;text-decoration:underline}
+  h1{font-size:clamp(1.8rem,5vw,2.5rem)}
+  .lede{color:var(--muted);max-width:62ch;margin-top:10px;font-size:1.05rem}
+
+  .content{padding-block:30px 56px}
+  h2{font-size:1.4rem}
+  .section{margin-top:34px}
+  .section:first-child{margin-top:0}
+  .section>h2{margin-bottom:6px;padding-bottom:8px;border-bottom:2px solid var(--scarlet);display:inline-block}
+  .hint{color:var(--muted);font-size:.92rem;margin:8px 0 14px}
+  .small{font-size:.88rem;color:var(--muted)}
+
+  .btn{background:var(--scarlet);color:var(--on-scarlet);border:none;border-radius:3px;padding:10px 20px;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn:hover{background:var(--scarlet-dark)}
+  .btn.ghost{background:transparent;color:var(--link);border:2px solid currentColor;padding:8px 18px}
+  .btn.ghost:hover{background:var(--band)}
+  .btn.sm{padding:6px 12px;font-size:.85rem}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .textbtn{background:none;border:none;color:var(--link);text-decoration:underline;cursor:pointer;font-size:.88rem;padding:4px 0}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+  .tile{background:var(--surface);border:1px solid var(--border);padding:16px}
+  .tile .n{font-family:var(--serif);font-weight:700;font-size:2rem;line-height:1.1;font-variant-numeric:tabular-nums}
+  .tile .l{font-size:.86rem;color:var(--muted);margin-top:4px}
+  .panel{background:var(--surface);border:1px solid var(--border);padding:20px}
+  .cap{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+
+  .barrow{display:grid;grid-template-columns:minmax(150px,1.2fr) 3fr 64px;gap:12px;align-items:center;font-size:.92rem;margin-bottom:10px}
+  .barrow>*{min-width:0}
+  .track{height:10px;background:var(--track);border-radius:2px;overflow:hidden}
+  .fill{height:100%;background:var(--scarlet)}
+  .barrow .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  @media(max-width:560px){.barrow{grid-template-columns:1fr 64px}.barrow .track{grid-column:1 / -1;order:3}}
+  .empty{color:var(--muted);font-size:.95rem}
+
+  .tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .tool{background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--scarlet);padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+  .tool h3{font-size:1.15rem}
+  .tool p{color:var(--muted);font-size:.93rem;flex:1}
+  .tool.soon{border-top-color:var(--border)}
+  .tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+  svg.chart{width:100%;height:auto;display:block}
+  .chart .gl{stroke:var(--border);stroke-width:1}
+  .chart .tx{fill:var(--muted);font-size:12px;font-family:var(--sans)}
+  .chart .tv{fill:var(--fg);font-size:13px;font-weight:700;font-family:var(--sans)}
+  .chart .ln{fill:none;stroke:var(--scarlet);stroke-width:3;stroke-linejoin:round}
+  .chart .dot{fill:var(--bg);stroke:var(--scarlet);stroke-width:3}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .twocol>*{min-width:0}
+  @media(max-width:760px){.twocol{grid-template-columns:1fr}}
+  table.t{width:100%;border-collapse:collapse;font-size:.92rem}
+  table.t th{text-align:left;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--border)}
+  table.t td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+  .tscroll{overflow-x:auto}
+  .banner{background:var(--band);border-left:4px solid var(--scarlet);padding:10px 14px;font-size:.92rem;margin-bottom:20px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+
+  .seg{display:inline-flex;border:2px solid var(--scarlet);border-radius:3px;overflow:hidden;margin-bottom:24px;flex-wrap:wrap}
+  .seg button{background:transparent;border:none;padding:10px 18px;font-size:.95rem;font-weight:700;color:var(--link);cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--scarlet);color:var(--on-scarlet)}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:6px}
+  .step{border-left:4px solid var(--scarlet);padding-left:12px}
+  .step b{display:block;font-family:var(--serif);font-size:1.02rem}
+  .step span{color:var(--muted);font-size:.9rem}
+  .notice{background:var(--band);border-left:4px solid var(--muted);padding:10px 14px;font-size:.92rem;margin-top:16px}
+  .count{font-size:.9rem;color:var(--muted);margin-top:16px;font-weight:600}
+
+  .domain{margin-top:34px}
+  .domain>h2{font-size:1.25rem;border-bottom:2px solid var(--scarlet);padding-bottom:8px;margin-bottom:14px}
+  .card{background:var(--surface);border:1px solid var(--border);padding:16px 18px;margin-bottom:12px}
+  .card .label{font-weight:700;font-size:1.02rem}
+  .card .desc{margin:8px 0 12px}
+  .card .desc .cap{margin-bottom:4px}
+  .card .desc ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
+  .scale{display:flex;gap:6px;max-width:360px}
+  .scale button{flex:1;padding:9px 0;border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:.95rem;font-weight:600;cursor:pointer;border-radius:3px}
+  .scale button:hover{border-color:var(--muted)}
+  .scale button[aria-pressed="true"]{background:var(--scarlet);border-color:var(--scarlet);color:var(--on-scarlet)}
+  .scalecap{display:flex;justify-content:space-between;max-width:360px;font-size:.76rem;color:var(--muted);margin-top:4px}
+  .f2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .f2>*{min-width:0}
+  @media(max-width:600px){.f2{grid-template-columns:1fr}}
+  .fl{display:block;font-size:.84rem;font-weight:700;margin-bottom:4px}
+  textarea,input[type=text],input[type=url],select{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:3px;background:var(--bg);color:var(--fg);font-size:.95rem}
+  textarea{min-height:62px;resize:vertical}
+  textarea.big{min-height:200px}
+  select{width:auto}
+
+  /* personalized */
+  .formgrid{display:grid;gap:14px}
+  .formgrid.two{grid-template-columns:1fr 1fr}
+  .formgrid>*{min-width:0}
+  @media(max-width:600px){.formgrid.two{grid-template-columns:1fr}}
+  .err{color:#B3261E;font-size:.9rem;margin-top:6px}
+  :root[data-theme="dark"] .err{color:#FF9A93}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .err{color:#FF9A93}}
+  .sheetlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:28px}
+  .sheetcard{background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--scarlet);padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+  .sheetcard h3{font-size:1.05rem;overflow-wrap:anywhere}
+  .sheetbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .strip{display:flex;gap:8px 18px;flex-wrap:wrap;font-size:.9rem;margin:18px 0 6px;font-weight:600}
+  .strip span b{font-variant-numeric:tabular-nums}
+  .group{font-family:var(--serif);font-size:1.12rem;font-weight:700;margin:26px 0 12px;display:flex;gap:10px;align-items:baseline}
+  .group small{font-family:var(--sans);font-weight:400;color:var(--muted);font-size:.86rem}
+  .card.imp3{border-left:6px solid var(--scarlet)}
+  .card.imp2{border-left:6px solid var(--muted)}
+  .card.imp1{border-left:6px solid var(--border)}
+  .cardtop{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+  .cardtop .label{flex:1;min-width:180px}
+  .impwrap{display:flex;gap:8px;align-items:center}
+  .impwrap label{font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .gap{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--scarlet);color:var(--on-scarlet);padding:2px 8px;border-radius:2px}
+  .meta{font-size:.84rem;color:var(--muted);margin-bottom:8px}
+  .ev{margin:0 0 12px;display:grid;gap:6px}
+  .ev blockquote{margin:0;padding:6px 12px;border-left:3px solid var(--border);font-size:.92rem;background:var(--band)}
+  .ev mark{background:var(--mark);color:var(--mark-fg);padding:0 2px}
+  .noev{font-size:.88rem;color:var(--muted);margin-bottom:12px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{background:var(--bg);border:1px solid var(--scarlet);color:var(--link);padding:6px 12px;border-radius:999px;font-size:.88rem;font-weight:600;cursor:pointer}
+  .chip:hover{background:var(--band)}
+  details.pt{margin-top:30px;border:1px solid var(--border);padding:12px 16px;background:var(--surface)}
+  details.pt summary{cursor:pointer;font-weight:700}
+  .cardtop input[type=text]{font-weight:700}
+
+
+  /* dashboard visuals */
+  :root{ --st-build-bg:#F2D27A; --st-build-fg:#2A2100; --st-strong-bg:#2F7D32; --st-strong-fg:#FFFFFF; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --st-build-bg:#8A6A12; --st-build-fg:#FFF1C2; --st-strong-bg:#2E6B3C; --st-strong-fg:#FFFFFF; } }
+  :root[data-theme="dark"]{ --st-build-bg:#8A6A12; --st-build-fg:#FFF1C2; --st-strong-bg:#2E6B3C; --st-strong-fg:#FFFFFF; }
+  .chart .tx.sm{font-size:11px}
+  .chart .tx.rl{font-size:15px;font-weight:600;fill:var(--fg)}
+  @media(min-width:761px){.twocol.wide{grid-template-columns:1.2fr 1fr}}
+  .chart .rg{fill:none;stroke:var(--border);stroke-width:1}
+  .chart .ra{stroke:var(--border);stroke-width:1}
+  .chart .pc{fill:var(--scarlet);fill-opacity:.22;stroke:var(--scarlet);stroke-width:2.5;stroke-linejoin:round}
+  .chart .pcd{fill:var(--scarlet)}
+  .chart .pd{fill:none;stroke:var(--fg);stroke-width:2;stroke-dasharray:6 4;stroke-linejoin:round}
+  .legend{display:flex;gap:8px 18px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend .sw{display:inline-block;width:14px;height:14px;border-radius:2px;border:1px solid var(--border)}
+  .legend .sw.line-c{background:var(--scarlet);opacity:.5;border-color:var(--scarlet)}
+  .legend .sw.line-d{background:transparent;border:2px dashed var(--fg);height:0;width:18px;border-radius:0}
+  .gts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:6px}
+  .gt{padding:8px 10px;border:1px solid var(--border);display:flex;flex-direction:column;gap:2px;min-width:0;font-size:.86rem}
+  .gt .gt-l{font-weight:700;line-height:1.25}
+  .gt .gt-m{font-size:.76rem;opacity:.9}
+  .st-gap{background:var(--scarlet);color:var(--on-scarlet);border-color:var(--scarlet)}
+  .st-build{background:var(--st-build-bg);color:var(--st-build-fg);border-color:var(--st-build-bg)}
+  .st-strong{background:var(--st-strong-bg);color:var(--st-strong-fg);border-color:var(--st-strong-bg)}
+  .st-low{background:var(--band);color:var(--fg)}
+  .st-unrated{background:transparent;color:var(--muted);border-style:dashed}
+  .legend .sw.st-gap,.legend .sw.st-build,.legend .sw.st-strong,.legend .sw.st-low,.legend .sw.st-unrated{display:inline-block}
+
+  /* keyword guide */
+  .kwsearch{max-width:560px}
+  .roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:6px}
+  .role{background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--scarlet);padding:16px;min-width:0}
+  .role h3{font-size:1.08rem}
+  .secbar{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .secbar span{font-size:.76rem;font-weight:600;background:var(--band);padding:2px 8px;border-radius:2px}
+  ul.ex{margin:4px 0 0;padding-left:18px;font-size:.9rem}
+  ul.ex li{margin-bottom:2px;overflow-wrap:anywhere}
+  details.kwc{background:var(--surface);border:1px solid var(--border);margin-bottom:8px}
+  details.kwc summary{cursor:pointer;padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+  details.kwc .kwl{font-weight:700}
+  .kwb{padding:4px 16px 16px}
+  .chips2{display:flex;gap:6px;flex-wrap:wrap}
+  .syn{background:var(--band);border:1px solid var(--border);padding:3px 10px;border-radius:999px;font-size:.88rem}
+  blockquote.exq{margin:0 0 6px;padding:8px 12px;border-left:3px solid var(--scarlet);background:var(--band);font-size:.95rem}
+
+  footer.site{background:var(--foot);color:var(--foot-fg);padding-block:26px;font-size:.88rem}
+  footer.site .inner{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;align-items:flex-start}
+  footer.site b{font-family:var(--serif);font-size:1.05rem;color:#fff}
+  footer.site p{max-width:60ch}
+  .linkbtn{background:none;border:none;color:var(--foot-fg);text-decoration:underline;cursor:pointer;font-size:.85rem;padding:0;margin-right:16px}
+  .saved{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 16px;font-size:.88rem;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none;border-radius:3px}
+  .saved.show{opacity:1}
+  @media (prefers-reduced-motion: reduce){.saved{transition:none}}
+</style>
+
+</head>
+<body>
+<header class="site">
+  <div class="stripe"></div>
+  <div class="inner headrow">
+    <div class="ptitle"><span class="proj">One Health Career Toolkit</span><span class="sub">Student resources</span></div>
+    <nav class="main" id="nav" aria-label="Main"></nav>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer class="site">
+  <div class="inner">
+    <div>
+      <b>One Health Career Toolkit</b>
+      <p style="margin-top:6px">Built from a survey of One Health employers and an analysis of real job postings, to help students plan a path into the field.</p>
+    </div>
+    <div>
+      <p>Design mockup for review. Not an official university page.</p>
+      <p style="margin-top:8px"><button class="linkbtn" id="sampleBtn" type="button"></button><button class="linkbtn" id="clearBtn" type="button"></button></p>
+    </div>
+  </div>
+</footer>
+<div class="saved" id="saved" role="status">Saved</div>
+
+<script>
+(function(){
+  var MAP_URL = 'https://maliceomatos-develop.github.io/one-health-orgs/';
+  var DOMAINS = {A:"Foundational One Health Skills", B:"Analytical Skills", C:"Operational Skills", D:"Leadership and Strategy", E:"Interpersonal and Cross-cutting Skills"};
+  var IMP = ['Not mentioned','Low','Medium','High'];
+
+  // domain, label, description bullets (from the survey instrument), search terms for reading postings ("!" = whole word only)
+  var COMP_DEF = [
+    ["A","One Health concepts and knowledge",["Analyze factors of health that impact human, animal, and environmental communities","Engage communities in programs to improve One Health systems"],["one health","ecohealth","eco-health","planetary health","multisectoral","multi-sectoral","transdisciplinary","interdisciplinary","human, animal"]],
+    ["A","Human, animal, and environmental interactions",["Identify pathways through which environmental changes influence animal and human health outcomes"],["zoono","human-animal","animal-human","human, animal","animal health","environmental health","wildlife","vector-borne","spillover","climate"]],
+    ["A","Ecosystem Health",["Recognize interrelationships among ecosystems, animal health, and human health","Analyze the effects of direct impacts on the environment"],["ecosystem","ecolog","habitat","wildlife health","ecohealth","environmental impact"]],
+    ["A","Biodiversity and ecosystem services",["Evaluate how biodiversity loss contributes to the emergence of zoonotic diseases"],["biodiversity","ecosystem service","natural resource","conservation","protected area"]],
+    ["A","Principles of Public Health",["Analyze factors of health that impact human, animal, and environmental communities","Engage communities in programs to improve One Health systems"],["public health","preventive medicine","population health","health promotion","community health","mph!"]],
+    ["B","Integrative One Health surveillance",["Perform outbreak or exposure detection","Analyze data from surveillance"],["surveillance","early warning","reporting system","disease monitoring","sentinel"]],
+    ["B","Social and integrative epidemiology",["Apply epidemiological thinking and a public health approach to a One Health-related issue or disease","Provide One Health policy recommendations based on epidemiological analysis"],["epidemiolog","social determinants","health equity","disparit"]],
+    ["B","Quantitative methods in One Health",["Apply modeling techniques to analyze disease transmission across human, animal, and environmental systems"],["statistic","quantitative","data analysis","data analytics","biostatistic","regression","modeling","modelling","stata!","spss!","sas!","python!","gis!"]],
+    ["B","Qualitative methods in One Health",["Conduct interviews or focus groups with stakeholders across human, animal, and environmental health sectors","Use thematic analysis to interpret community perspectives on One Health issues"],["qualitative","focus group","interview","ethnograph","mixed method","thematic analysis","needs assessment"]],
+    ["B","Research",["Conduct research according to professional standards of data management, analysis, and application","Translate research findings to public health practice"],["research","publication","peer-review","manuscript","grant writing","scientific writing","study design","evidence-based","literature review","principal investigator"]],
+    ["B","Risk assessment and mitigation",["Conduct One Health risk assessment and analysis","Implement One Health risk management and mitigation"],["risk assessment","risk analysis","risk management","risk communication","mitigation","biosecurity","biosafety","hazard"]],
+    ["C","Infectious Disease Management",["Identify and analyze risk factors associated with illness during an infectious disease outbreak or epidemic","Design and implement an infectious disease management plan"],["infectious disease","zoonotic disease","disease control","disease prevention","pathogen","vaccin","antimicrobial","amr!","rabies","avian influenza"]],
+    ["C","Outbreak investigation and response",["Apply the steps in conducting an outbreak investigation","Review investigation and outbreak management experience to apply best practices for future events"],["outbreak","emergency response","epidemic","pandemic","incident command","emergency preparedness","rapid response","contact tracing","field investigation"]],
+    ["C","One Health program management",["Plan, design, implement, monitor, and evaluate One Health programs","Ensure effective management of human resources for One Health work"],["program management","project management","program manager","manage program","grant management","budget","program coordination","coordinate","work plan","deliverable","monitoring and evaluation","m&e!"]],
+    ["C","Implementation science",["Use process models and frameworks to guide implementation","Leverage opportunities and encourage evidence-based decision making"],["implementation science","implementation research","program evaluation","evaluation","scale up","scale-up","pilot","dissemination","knowledge translation","quality improvement"]],
+    ["D","One Health leadership",["Articulate a shared mission, core values, and vision to achieve One Health goals","Use collaborative methods, negotiation, and conflict management across sectors and disciplines"],["leadership","lead a team","lead teams","supervis","mentor","manage staff","direct report","strategic direction","team lead","negotiat"]],
+    ["D","Systems thinking",["Describe the elements of complex problems and systems thinking","Create and use systems mapping to deepen understanding of One Health problems"],["systems thinking","systems approach","holistic","complex system","systems-level","systems level","health system","systems analysis","strategic planning"]],
+    ["D","Policy and advocacy",["Analyze One Health policy and the challenges involved in its development and implementation","Plan, design, develop, and implement One Health policy"],["policy","policies","advocacy","regulat","legislat","government relations","public policy","guideline development","compliance"]],
+    ["E","Collaboration and Partnership",["Promote inclusion of representatives of diverse constituencies across human, animal, environmental health, and other relevant disciplines","Communicate with all stakeholders in a way that supports a team approach to strengthening One Health systems"],["collaborat","partnership","partner","stakeholder","team player","cross-functional","multidisciplinary","coalition","cross-sector","teamwork"]],
+    ["E","Communication",["Deploy formal written and oral communication strategies","Work with the media to provide information about public health, laboratories, and public health issues"],["communicat","written","verbal","presentation","public speaking","outreach","report writing","interpersonal","storytelling"]],
+    ["E","Behavioral change",["Adapt and apply models for individual and community behavior change to One Health contexts"],["behavio","social marketing","health education","health communication","community engagement","community mobilization","health literacy"]],
+    ["E","Culture, beliefs, values, and ethics",["Demonstrate cultural competence by identifying, interpreting, and addressing local norms, wisdom, values, beliefs, and culture","Generate trust in One Health initiatives through the highest ethical, scientific, and professional standards"],["cultural","cross-cultural","diversity","ethic","equity","inclusion","indigenous"]],
+    ["E","Gender",["Evaluate how gender intersects with emerging pandemic threats","Develop gender-sensitive response plans for emerging pandemic threats"],["gender","women","intersectional"]]
+  ];
+  var COMPS = COMP_DEF.map(function(r,i){ return {id:'c'+i, domain:r[0], label:r[1], desc:r[2], terms:r[3]}; });
+  // skills that postings often ask for that are not among the 23
+  var EXTRAS = [
+    ["Laboratory and diagnostic skills",["laboratory","diagnostic","pcr!","assay","specimen","necropsy"]],
+    ["GIS and mapping",["gis!","geospatial","mapping","arcgis","spatial analysis"]],
+    ["Grant writing and fundraising",["grant writing","grant proposal","fundrais","proposal development","donor"]],
+    ["Foreign language skills",["fluen","bilingual","spanish","french","portuguese","arabic","swahili"]],
+    ["Clinical practice",["clinical","patient care","veterinary practice","clinic!","licens"]],
+    ["Food safety",["food safety","food security","food system","haccp!","foodborne"]],
+    ["Teaching and training",["teaching","training","curriculum","instruct","facilitat","capacity building"]],
+    ["Fieldwork and travel",["fieldwork","field work","field-based","travel","deploy"]],
+    ["Data management and visualization",["data management","database","dashboard","visualization","tableau","power bi","excel"]],
+    ["Financial management",["financial management","budget management","procurement","financial report"]]
+  ];
+  var NAV = [
+    {id:'home', t:'Home'}, {id:'dash', t:'Dashboard'}, {id:'matrix', t:'Skill Matrix'},
+    {id:'kw', t:'Keyword Guide'}, {id:'map', t:'Employer Map \u2197', href:MAP_URL}
+  ];
+
+  // ---------- storage ----------
+  var data = {core:{rows:{}, history:[]}, sheets:[], sample:false};
+  try{ var raw = localStorage.getItem('ohPortalProto2'); if(raw) data = JSON.parse(raw); }catch(e){}
+  data.core = data.core || {rows:{}, history:[]}; data.core.rows = data.core.rows || {}; data.core.history = data.core.history || []; data.sheets = data.sheets || [];
+  function persist(){ try{ localStorage.setItem('ohPortalProto2', JSON.stringify(data)); }catch(e){} }
+
+  // ---------- helpers ----------
+  function h(tag, props){
+    var e = document.createElement(tag); props = props || {};
+    Object.keys(props).forEach(function(k){
+      var v = props[k];
+      if(k==='class') e.className = v;
+      else if(k==='text') e.textContent = v;
+      else if(k.indexOf('on')===0) e.addEventListener(k.slice(2), v);
+      else if(v===true) e.setAttribute(k,'');
+      else if(v!==false && v!=null) e.setAttribute(k, v);
+    });
+    for(var i=2;i<arguments.length;i++) addKid(e, arguments[i]);
+    return e;
+  }
+  function addKid(e, c){
+    if(c==null || c===false) return;
+    if(Array.isArray(c)) c.forEach(function(x){ addKid(e, x); }); else e.append(c);
+  }
+  var savedTimer;
+  function flashSaved(){
+    var el = document.getElementById('saved'); el.classList.add('show');
+    clearTimeout(savedTimer); savedTimer = setTimeout(function(){ el.classList.remove('show'); }, 1100);
+  }
+  function save(){ persist(); flashSaved(); }
+  function armed(btn, label, armedLabel, fn){
+    var on = false, timer; btn.textContent = label;
+    btn.addEventListener('click', function(){
+      if(!on){ on = true; btn.textContent = armedLabel; timer = setTimeout(function(){ on = false; btn.textContent = label; }, 4000); }
+      else { clearTimeout(timer); on = false; btn.textContent = label; fn(); }
+    });
+    return btn;
+  }
+  function avg(a){ return a.length ? a.reduce(function(x,y){ return x+y; },0)/a.length : 0; }
+  function dayKey(ms){ return new Date(ms).toISOString().slice(0,10); }
+  function dayLabel(k){ return new Date(k+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'}); }
+  function scale(id, value, onPick, aria){
+    var wrap = h('div',{class:'scale',role:'group','aria-label':aria});
+    for(var v=1; v<=5; v++){ (function(v){
+      var b = h('button',{type:'button',id:id+'-'+v,text:String(v),'aria-pressed':String(value===v)});
+      b.addEventListener('click', function(){
+        var nv = (wrap.dataset.v==String(v)) ? 0 : v; wrap.dataset.v = nv;
+        wrap.querySelectorAll('button').forEach(function(x,i){ x.setAttribute('aria-pressed', String(nv===i+1)); });
+        onPick(nv);
+      });
+      wrap.append(b);
+    })(v); }
+    wrap.dataset.v = value||0;
+    return wrap;
+  }
+  function textarea(id, value, ph, onInput, cls){
+    var t = h('textarea',{id:id,placeholder:ph,class:cls||''}); t.value = value||'';
+    var timer; t.addEventListener('input', function(){ onInput(t.value); clearTimeout(timer); timer = setTimeout(save, 500); });
+    return t;
+  }
+  function field(label, id, el){ return h('div',null, h('label',{class:'fl',for:id,text:label}), el); }
+
+  // ---------- reading a posting ----------
+  function termSource(terms, extend){
+    return '\\b(?:' + terms.map(function(t){
+      var whole = /!$/.test(t); if(whole) t = t.slice(0,-1);
+      return t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/[\s\-]+/g,'[\\s\\-]+') + (whole ? '\\b' : (extend ? '\\w*' : ''));
+    }).join('|') + ')';
+  }
+  function splitUnits(text){
+    var units = [], mode = 'default';
+    text.replace(/\r/g,'').split(/\n+/).forEach(function(raw){
+      var line = raw.replace(/^[\s\u2022\u00b7\u25aa\u25cf\u25e6*\u2013\u2014-]+/,'').trim();
+      if(!line) return;
+      var words = line.split(/\s+/).length;
+      var kwPref = /preferred|desired|desirable|nice to have|bonus|a plus|additional qualif/i.test(line);
+      var kwReq = /required|minimum|basic qualif|qualifications|responsibilit|duties|what you|must have|essential|requirements/i.test(line);
+      var isHeading = (kwPref || kwReq) && !/[.;]$/.test(line) && (words <= 5 || (/:$/.test(line) && words <= 8));
+      if(isHeading){ mode = kwPref ? 'preferred' : 'required'; return; }
+      line.split(/(?<=[.!?])\s+(?=[A-Z0-9])/).forEach(function(s){
+        s = s.trim(); if(s.length < 3) return;
+        var w = mode==='required' ? 1.5 : (mode==='preferred' ? 0.5 : 1);
+        if(/\b(preferred|desired|desirable|a plus|nice to have|bonus)\b/i.test(s)) w = 0.5;
+        else if(/\b(required|must|essential|minimum|demonstrated|proven|strong|expert|proficien|excellent)\b/i.test(s)) w = Math.max(w,1.5);
+        units.push({s:s, w:w});
+      });
+    });
+    return units;
+  }
+  function levelOf(score){ return score<=0 ? 0 : (score<2 ? 1 : (score<4 ? 2 : 3)); }
+  function scoreTerms(units, terms){
+    var re = new RegExp(termSource(terms),'i'), score = 0, hits = [];
+    units.forEach(function(u,i){ if(re.test(u.s)){ score += u.w; hits.push({s:u.s,w:u.w,i:i}); } });
+    hits.sort(function(a,b){ return b.w-a.w || a.i-b.i; });
+    return {score:score, ev:hits.slice(0,2).map(function(x){ return x.s.length>260 ? x.s.slice(0,257)+'\u2026' : x.s; })};
+  }
+  function analyze(text){
+    var units = splitUnits(text);
+    var comp = COMPS.map(function(c){ var r = scoreTerms(units, c.terms); return {score:r.score, level:levelOf(r.score), ev:r.ev}; });
+    var extras = [];
+    EXTRAS.forEach(function(x){ var r = scoreTerms(units, x[1]); if(r.score>0) extras.push({label:x[0], level:Math.max(1,levelOf(r.score)), ev:r.ev}); });
+    return {comp:comp, extras:extras, units:units.length};
+  }
+  function highlight(el, text, terms){
+    var re = new RegExp(termSource(terms, true),'gi'), last = 0, m;
+    while((m = re.exec(text))){
+      if(m.index>last) el.append(text.slice(last, m.index));
+      el.append(h('mark',{text:m[0]})); last = m.index + m[0].length;
+      if(m[0].length===0) re.lastIndex++;
+    }
+    if(last<text.length) el.append(text.slice(last));
+  }
+  function effImp(r){ return r.ovr!=null ? r.ovr : (r.auto||0); }
+  function coreConf(cid){ var r = data.core.rows[cid]; return r && r.conf ? r.conf : 0; }
+
+  function analyzeInto(s){
+    var res = analyze(s.text);
+    COMPS.forEach(function(c,i){
+      var r = s.rows[c.id] || (s.rows[c.id] = {ovr:null, conf:null, demo:'', imp:''});
+      r.auto = res.comp[i].level; r.ev = res.comp[i].ev;
+      if(r.conf==null) r.conf = coreConf(c.id);
+    });
+    s.extras = res.extras;
+  }
+  function newSheet(title, url, text, created){
+    var s = {id:'p'+(created||Date.now())+Math.floor(Math.random()*1000), title:title||'Untitled posting', url:url||'', text:text, created:created||Date.now(), rows:{}, custom:[], extras:[]};
+    analyzeInto(s); return s;
+  }
+
+  // ---------- core history ----------
+  function snapshot(){
+    var r = {}; COMPS.forEach(function(c){ var v = coreConf(c.id); if(v) r[c.id] = v; });
+    var t = dayKey(Date.now()), hst = data.core.history, last = hst[hst.length-1];
+    if(last && last.t===t) last.r = r; else hst.push({t:t, r:r});
+  }
+  function snapAvg(sn){ var v = Object.keys(sn.r).map(function(k){ return sn.r[k]; }); return v.length ? avg(v) : null; }
+
+  // ---------- sample data ----------
+  var SAMPLE_TEXTS = [
+    ["(Sample) One Health Program Coordinator",
+"About the role\nWe are seeking a One Health Program Coordinator to lead cross-sector partnerships between public health, veterinary and environmental agencies.\n\nResponsibilities\nCoordinate multisectoral working groups and maintain strong relationships with government and community stakeholders.\nManage project budgets, work plans and deliverables for donor-funded programs.\nSupport zoonotic disease surveillance and outbreak response activities in partnership with local health authorities.\nPrepare clear written reports and present findings to technical and non-technical audiences.\nContribute to monitoring and evaluation of program activities.\n\nRequired qualifications\nMaster's degree in public health, veterinary medicine or a related field.\nDemonstrated experience in project management and partnership building.\nExcellent written and verbal communication skills.\n\nPreferred qualifications\nExperience with qualitative methods such as interviews or focus groups.\nKnowledge of gender-sensitive program design.\nFluency in Spanish."],
+    ["(Sample) Public Health Veterinarian",
+"Public Health Veterinarian, State Department of Health\n\nDuties\nInvestigate zoonotic disease reports and lead field investigations during outbreaks of rabies, avian influenza and other pathogens.\nConduct risk assessments and provide risk communication guidance to physicians, veterinarians and the public.\nAnalyze surveillance data using statistical software and produce epidemiologic summaries.\nAdvise on policy and regulatory issues related to animal-borne disease control.\nCollaborate with partners in agriculture, wildlife and environmental health agencies.\n\nMinimum qualifications\nDVM and MPH or equivalent experience in epidemiology.\nStrong knowledge of infectious disease control and public health principles.\nAbility to work independently and supervise technical staff.\n\nPreferred\nExperience with GIS mapping.\nBoard certification in preventive medicine."]
+  ];
+  function loadSample(){
+    var now = Date.now(), DAY = 864e5, ids = COMPS.map(function(c){ return c.id; });
+    var r0 = {}, r1 = {}, r2 = {};
+    ids.forEach(function(id,i){
+      r0[id] = 1 + (i*5)%3; r1[id] = Math.min(5, r0[id] + (i%2)); r2[id] = Math.min(5, r1[id] + (i%3===0?1:0) + (i%4===0?1:0));
+    });
+    data = {core:{rows:{}, history:[{t:dayKey(now-60*DAY), r:r0},{t:dayKey(now-28*DAY), r:r1},{t:dayKey(now), r:r2}]}, sheets:[], sample:true};
+    ids.forEach(function(id){ data.core.rows[id] = {conf:r2[id], demo:'', imp:''}; });
+    data.sheets = SAMPLE_TEXTS.map(function(x,i){ return newSheet(x[0], '', x[1], now-(i+1)*3*DAY); });
+    persist();
+  }
+  function hasData(){ return data.sheets.length>0 || data.core.history.length>0 || Object.keys(data.core.rows).some(function(k){ var r = data.core.rows[k]; return r.conf || r.demo || r.imp; }); }
+
+  // ---------- views ----------
+  var view = 'home', mtab = 'core', sheetId = null, sortMode = 'importance';
+  function go(v){ view = v; if(v==='matrix'){ sheetId = null; } render(); window.scrollTo(0,0); }
+
+  function renderNav(){
+    var nav = document.getElementById('nav'); nav.innerHTML = '';
+    NAV.forEach(function(n){
+      var el;
+      if(n.href){ el = h('a',{href:n.href,target:'_blank',rel:'noopener noreferrer',text:n.t}); }
+      else {
+        el = h('button',{type:'button',text:n.t});
+        if(n.soon){ el.setAttribute('aria-disabled','true'); el.title = 'In development'; }
+        else { el.addEventListener('click', function(){ go(n.id); }); if(view===n.id) el.setAttribute('aria-current','page'); }
+      }
+      nav.append(el);
+    });
+  }
+  function pagehead(crumbs, title, lede){
+    var c = h('div',{class:'crumbs'});
+    crumbs.forEach(function(x,i){
+      if(i) c.append(' / ');
+      if(x.go) c.append(h('button',{type:'button',text:x.t,onclick:function(){ go(x.go); }})); else c.append(x.t);
+    });
+    return h('div',{class:'pagehead'}, h('div',{class:'inner'}, c, h('h1',{text:title}), lede ? h('p',{class:'lede',text:lede}) : null));
+  }
+  function page(head, body){ return h('div',null, head, h('div',{class:'content'}, h('div',{class:'inner'}, body))); }
+  function ratedCount(){ return COMPS.filter(function(c){ return coreConf(c.id); }).length; }
+
+  // ----- Home -----
+  function homeView(){
+    var tools = [
+      {t:'Dashboard', d:'Your summary: postings analyzed, progress on the Skill Matrix, and the skills to work on first.', go:'dash'},
+      {t:'Skill Matrix', d:'Rate your confidence in 23 core competencies, or analyze a specific job posting to see what it asks for.', go:'matrix'},
+      {t:'Keyword Guide', d:'Job titles to search for and the words employers use for each competency, to find postings and describe your experience.', go:'kw'},
+      {t:'Employer Map', d:'Browse 230 One Health organizations by sector and region.', href:MAP_URL}
+    ];
+    return page(
+      pagehead([{t:'Home'}], 'Student toolkit', 'Resources to help you understand what One Health employers look for and plan your next steps.'),
+      [
+        h('div',{class:'section'}, h('h2',{text:'Your summary'}),
+          h('div',{class:'tiles',style:'margin-top:14px'},
+            tile(String(data.sheets.length),'Job postings analyzed'),
+            tile(ratedCount()+' / '+COMPS.length,'Core competencies rated'),
+            tile(ratedCount()? avg(COMPS.map(function(c){return coreConf(c.id);}).filter(Boolean)).toFixed(1) : '\u2013','Average confidence (1\u20135)')
+          ),
+          h('div',{style:'margin-top:14px'}, h('button',{class:'btn ghost',type:'button',text:'Open dashboard',onclick:function(){ go('dash'); }}))
+        ),
+        h('div',{class:'section'}, h('h2',{text:'Tools'}),
+          h('div',{class:'tools',style:'margin-top:14px'}, tools.map(function(t){
+            var live = !!(t.go||t.href);
+            return h('div',{class:'tool'+(live?'':' soon')},
+              h('span',{class:'tag',text:live?'Available':'In development'}),
+              h('h3',{text:t.t}), h('p',{text:t.d}),
+              t.go ? h('div',null,h('button',{class:'btn ghost',type:'button',text:'Open',onclick:function(){ go(t.go); }})) :
+              t.href ? h('div',null,h('a',{class:'btn ghost',href:t.href,target:'_blank',rel:'noopener noreferrer',text:'Open map \u2197'})) : null
+            );
+          }))
+        )
+      ]
+    );
+  }
+  function tile(n,l){ return h('div',{class:'tile'}, h('div',{class:'n',text:n}), h('div',{class:'l',text:l})); }
+
+  // ----- Dashboard -----
+  function lineChart(pts){
+    var W=480,H=270,pl=30,pr=28,pt=26,pb=38, iw=W-pl-pr, ih=H-pt-pb;
+    function x(i){ return pts.length===1 ? pl+iw/2 : pl+iw*i/(pts.length-1); }
+    function y(v){ return pt+ih*(1-(v-1)/4); }
+    var s = '';
+    for(var v=1; v<=5; v++) s += '<line class="gl" x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y(v)+'" y2="'+y(v)+'"/><text class="tx" x="'+(pl-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+v+'</text>';
+    if(pts.length>1) s += '<path class="ln" d="'+pts.map(function(p,i){ return (i?'L':'M')+x(i).toFixed(1)+' '+y(p.val).toFixed(1); }).join(' ')+'"/>';
+    var step = Math.ceil(pts.length/7);
+    pts.forEach(function(p,i){
+      s += '<circle class="dot" cx="'+x(i).toFixed(1)+'" cy="'+y(p.val).toFixed(1)+'" r="5"/>';
+      if(i%step===0 || i===pts.length-1) s += '<text class="tx" x="'+x(i).toFixed(1)+'" y="'+(H-12)+'" text-anchor="middle">'+p.label+'</text>';
+      if(i===pts.length-1) s += '<text class="tv" x="'+x(i).toFixed(1)+'" y="'+(y(p.val)-12).toFixed(1)+'" text-anchor="middle">'+p.val.toFixed(1)+'</text>';
+    });
+    return '<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Average confidence over time">'+s+'</svg>';
+  }
+  var dashScope = 'all';
+  var ST = {gap:'Priority gap', build:'Building', strong:'Strength', low:'Lower demand', unrated:'Not rated'};
+  var AREA_SHORT = {A:'Foundational', B:'Analytical', C:'Operational', D:'Leadership', E:'Interpersonal'};
+  function demandWord(d){ return d==null ? '' : d>=2.5 ? 'High' : d>=1.5 ? 'Medium' : d>0 ? 'Low' : 'Not mentioned'; }
+  function focusRows(scope){
+    var sheets = scope==='all' ? data.sheets : data.sheets.filter(function(s){ return s.id===scope; });
+    return COMPS.map(function(c){
+      var imps = sheets.map(function(s){ return effImp(s.rows[c.id]||{}); });
+      var demand = imps.length ? avg(imps) : null;
+      var conf = scope==='all' ? coreConf(c.id) : ((sheets[0] && sheets[0].rows[c.id] && sheets[0].rows[c.id].conf) || 0);
+      var status = null;
+      if(demand!=null){ status = !conf ? 'unrated' : (demand>=1.5 ? (conf<=2 ? 'gap' : (conf===3 ? 'build' : 'strong')) : 'low'); }
+      return {c:c, demand:demand, conf:conf, status:status, score: demand==null ? 0 : demand*(5-(conf||1))};
+    });
+  }
+  function radar(rows){
+    var areas = Object.keys(DOMAINS), W=510, H=360, cx=268, cy=186, R=112;
+    function ang(i){ return (-90+i*72)*Math.PI/180; }
+    function pt(v,i){ return [cx+R*(v/5)*Math.cos(ang(i)), cy+R*(v/5)*Math.sin(ang(i))]; }
+    function poly(vals){ return vals.map(function(v,i){ var p = pt(v,i); return p[0].toFixed(1)+','+p[1].toFixed(1); }).join(' '); }
+    var conf = areas.map(function(d){ var v = rows.filter(function(r){ return r.c.domain===d && r.conf; }).map(function(r){ return r.conf; }); return v.length ? avg(v) : 0; });
+    var dem = areas.map(function(d){ var v = rows.filter(function(r){ return r.c.domain===d && r.demand!=null; }).map(function(r){ return r.demand; }); return v.length ? avg(v)/3*5 : null; });
+    var hasDem = dem.some(function(v){ return v!=null; }), hasConf = conf.some(function(v){ return v>0; });
+    var s = '';
+    for(var r=1; r<=5; r++) s += '<polygon class="rg" points="'+poly([r,r,r,r,r])+'"/>';
+    areas.forEach(function(d,i){
+      var p = pt(5,i), a = ang(i), lx = cx+(R+16)*Math.cos(a), ly = cy+(R+16)*Math.sin(a), c = Math.cos(a), sn = Math.sin(a);
+      s += '<line class="ra" x1="'+cx+'" y1="'+cy+'" x2="'+p[0].toFixed(1)+'" y2="'+p[1].toFixed(1)+'"/>';
+      s += '<text class="tx rl" x="'+lx.toFixed(1)+'" y="'+(ly+(sn>0.5?12:(sn<-0.5?-4:4))).toFixed(1)+'" text-anchor="'+(c>0.3?'start':(c<-0.3?'end':'middle'))+'">'+d+' · '+AREA_SHORT[d]+'</text>';
+    });
+    for(var r2=1; r2<=5; r2++){ var q = pt(r2,0); s += '<text class="tx sm" x="'+(cx+5)+'" y="'+(q[1]-2).toFixed(1)+'">'+r2+'</text>'; }
+    if(hasDem) s += '<polygon class="pd" points="'+poly(dem.map(function(v){ return v||0; }))+'"/>';
+    if(hasConf){
+      s += '<polygon class="pc" points="'+poly(conf)+'"/>';
+      conf.forEach(function(v,i){ if(v){ var p = pt(v,i); s += '<circle class="pcd" cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="4.5"/>'; } });
+    }
+    return '<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Radar chart of your confidence and the demand in your postings across the five competency areas">'+s+'</svg>';
+  }
+  function gapGrid(rows){
+    var wrap = h('div');
+    Object.keys(DOMAINS).forEach(function(d){
+      wrap.append(h('div',{class:'cap',style:'margin-top:14px',text:d+'. '+DOMAINS[d]}));
+      wrap.append(h('div',{class:'gts'}, rows.filter(function(r){ return r.c.domain===d; }).map(function(r){
+        return h('div',{class:'gt st-'+r.status, title:r.c.label+': '+ST[r.status]},
+          h('span',{class:'gt-l',text:r.c.label}),
+          h('span',{class:'gt-m',text:demandWord(r.demand)+' · '+(r.conf ? r.conf+'/5' : 'not rated')}));
+      })));
+    });
+    wrap.append(h('div',{class:'legend'}, ['gap','build','strong','low','unrated'].map(function(k){
+      return h('span',null, h('i',{class:'sw st-'+k}), ST[k]);
+    })));
+    return wrap;
+  }
+  function dashView(){
+    var hst = data.core.history.filter(function(sn){ return snapAvg(sn)!=null; });
+    if(dashScope!=='all' && !findSheet(dashScope)) dashScope = 'all';
+    var body = [];
+    if(data.sample) body.push(h('div',{class:'banner'}, h('span',{text:'You are viewing sample data (2 example postings and 3 check-ins), not real responses.'})));
+    var cur = ratedCount();
+    var avgNow = cur ? avg(COMPS.map(function(c){ return coreConf(c.id); }).filter(Boolean)) : null;
+    var overall = focusRows('all');
+    var gapsN = overall.filter(function(r){ return r.status==='gap'; }).length;
+    body.push(h('div',{class:'tiles'},
+      tile(String(data.sheets.length),'Job postings analyzed'),
+      tile(cur+' / '+COMPS.length,'Core competencies rated'),
+      tile(avgNow!=null ? avgNow.toFixed(1) : '–','Average confidence (1–5)'),
+      tile(data.sheets.length ? String(gapsN) : '–','Priority gaps across postings')
+    ));
+
+    // where to focus
+    var scopeSel = h('select',{id:'dash-scope','aria-label':'Show focus areas for'});
+    scopeSel.append(h('option',{value:'all',text:'Overall (all postings)'}));
+    data.sheets.forEach(function(s){ scopeSel.append(h('option',{value:s.id,text:s.title})); });
+    scopeSel.value = dashScope;
+    scopeSel.addEventListener('change', function(){ dashScope = scopeSel.value; render(); });
+    var rows = focusRows(dashScope);
+    var hasPost = data.sheets.length>0;
+    var ranked = rows.filter(function(r){ return r.demand>0; }).sort(function(a,b){ return b.score-a.score; }).slice(0,6);
+    var radarPanel = h('div',{class:'panel'}, h('div',{class:'cap',text:'Areas: your confidence vs. demand'}));
+    if(!cur && !hasPost) radarPanel.append(h('p',{class:'empty',text:'Rate your core competencies and analyze a posting to see this chart.'}));
+    else {
+      var rc = h('div'); rc.innerHTML = radar(rows); radarPanel.append(rc);
+      radarPanel.append(h('div',{class:'legend'},
+        h('span',null,h('i',{class:'sw line-c'}),'Your confidence (1–5)'),
+        hasPost ? h('span',null,h('i',{class:'sw line-d'}),'Demand in postings (High = outer ring)') : null));
+    }
+    var rankPanel = h('div',{class:'panel'}, h('div',{class:'cap',text:'Focus first'}),
+      ranked.length ? [
+        h('p',{class:'small',style:'margin-bottom:12px',text:'Skills these postings ask for most, where your confidence is lowest. Bar shows importance (out of 3).'}),
+        ranked.map(function(g){
+          return h('div',{class:'barrow'}, h('span',{text:g.c.label+(g.conf ? ' (you: '+g.conf+'/5)' : ' (not rated)')}), h('div',{class:'track'},h('div',{class:'fill',style:'width:'+(g.demand/3*100)+'%'})), h('span',{class:'val',text:g.demand.toFixed(1)+' / 3'}));
+        })
+      ] : h('p',{class:'empty',text:'Analyze a job posting in the Skill Matrix to see which skills to prioritize.'}));
+    var gridPanel = h('div',{class:'panel'}, h('div',{class:'cap',text:'Gap map by competency'}),
+      hasPost ? gapGrid(rows) : h('p',{class:'empty',text:'The gap map appears once you have analyzed a posting.'}));
+    body.push(h('div',{class:'section'}, h('h2',{text:'Where to focus'}),
+      h('div',{class:'row',style:'margin:14px 0'}, h('label',{class:'small',for:'dash-scope',text:'Show for'}), scopeSel,
+        dashScope!=='all' ? h('span',{class:'small',text:'Uses your confidence for this posting.'}) : null),
+      h('div',{class:'twocol wide'}, radarPanel, rankPanel),
+      h('div',{style:'margin-top:20px'}, gridPanel)));
+
+    // evolution
+    var evo = h('div',{class:'panel'});
+    evo.append(h('div',{class:'cap',text:'Skill Matrix over time'}));
+    if(!hst.length){ evo.append(h('p',{class:'empty',text:'Rate your core competencies and your first check-in will appear here. Each day you update your ratings adds a new point.'})); }
+    else {
+      var c = h('div'); c.innerHTML = lineChart(hst.map(function(sn){ return {label:dayLabel(sn.t), val:snapAvg(sn)}; })); evo.append(c);
+      if(hst.length===1) evo.append(h('p',{class:'small',text:'Come back later and update your ratings to see your progress.'}));
+    }
+    var gains = [];
+    if(hst.length>1){
+      var first = hst[0].r, last = hst[hst.length-1].r;
+      COMPS.forEach(function(c){ if(first[c.id] && last[c.id] && last[c.id]>first[c.id]) gains.push({c:c, d:last[c.id]-first[c.id], from:first[c.id], to:last[c.id]}); });
+      gains.sort(function(a,b){ return b.d-a.d; });
+    }
+    var gainsPanel = h('div',{class:'panel'}, h('div',{class:'cap',text:'Biggest gains since your first check-in'}),
+      gains.length ? gains.slice(0,5).map(function(g){
+        return h('div',{class:'barrow'}, h('span',{text:g.c.label}), h('div',{class:'track'},h('div',{class:'fill',style:'width:'+(g.to/5*100)+'%'})), h('span',{class:'val',text:g.from+' → '+g.to}));
+      }) : h('p',{class:'empty',text:hst.length>1 ? 'No increases yet.' : 'Gains appear after your second check-in.'}));
+    body.push(h('div',{class:'section'}, h('h2',{text:'Your progress'}), h('div',{class:'twocol',style:'margin-top:14px'}, evo, gainsPanel)));
+
+    // postings table
+    var tbl;
+    if(data.sheets.length){
+      tbl = h('div',{class:'tscroll'}, h('table',{class:'t'},
+        h('thead',null,h('tr',null,h('th',{text:'Posting'}),h('th',{text:'Added'}),h('th',{text:'High-importance skills'}),h('th',{text:''}))),
+        h('tbody',null, data.sheets.map(function(s){
+          var hi = COMPS.filter(function(c){ return effImp(s.rows[c.id]||{})===3; }).length;
+          return h('tr',null, h('td',{text:s.title}), h('td',{text:dayLabel(dayKey(s.created))}), h('td',{text:String(hi)}),
+            h('td',null,h('button',{class:'textbtn',type:'button',text:'Open',onclick:function(){ mtab='personal'; sheetId=s.id; view='matrix'; render(); window.scrollTo(0,0); }})));
+        }))
+      ));
+    } else tbl = h('p',{class:'empty',text:'No postings yet.'});
+    body.push(h('div',{class:'section'}, h('h2',{text:'Your job postings'}), h('div',{class:'panel',style:'margin-top:14px'}, tbl,
+      h('div',{style:'margin-top:12px'}, h('button',{class:'btn ghost sm',type:'button',text:'Analyze a new posting',onclick:function(){ mtab='personal'; sheetId=null; view='matrix'; render(); window.scrollTo(0,0); }})))));
+
+    return page(pagehead([{t:'Home',go:'home'},{t:'Dashboard'}], 'Your dashboard', 'See where your skills match what your target jobs ask for, and track your progress over time.'), body);
+  }
+
+  // ----- Keyword Guide -----
+  var TITLE_DATA = [
+    ["One Health Coordinator","np"],
+    ["Program and Communications Coordinator, Ctr for Human and Planetary Health","np"],
+    ["Community Outreach Coordinator","np"],
+    ["Asst. Professor, Animal Biotech. & Conservation","np"],
+    ["Postdoctoral Associate","np"],
+    ["Technical Specialist in Animal Health","gov"],
+    ["Food Standards Officer","aca"],
+    ["Project Coordinator","aca"],
+    ["Project Coordinator","gov"],
+    ["Programme Assistant","aca"],
+    ["Wildlife Veterinary Epidemiologist","np"],
+    ["Program Officer (Sustainable Food Systems)","aca"],
+    ["Associate/Full Professor of Wildlife Health","aca"],
+    ["Assistant/Associate/Full Professor of Veterinary Toxicology","ig"],
+    ["Chief of Global and One Health","ig"],
+    ["Chair and Professor or Associate Professor","ig"],
+    ["Field Veterinarian","ig"],
+    ["Veterinary Program Manager","ig"],
+    ["Veterinary Medical Officer II","gov"],
+    ["One Health Veterinarian","aca"],
+    ["Stewardship Veterinarian","aca"],
+    ["Stewardship Veterinarian","gov"],
+    ["Animal Health Advisor","aca"],
+    ["One Health Epidemiologist - HP III","gov"],
+    ["Zoonoses Epidemiologist - HP III","gov"],
+    ["Zoonosis Veterinarian","gov"],
+    ["Public Health Veterinarian","gov"],
+    ["Epidemiologist 3 (Non-Medical) - Aquatic Health Veterinarian","gov"],
+    ["State Wildlife Veterinarian","gov"],
+    ["Animal Health and Zoonotic Disease Technical Advisor","gov"],
+    ["Zoonotic Disease Epidemiology Specialist","gov"],
+    ["State Public Health Veterinarian","gov"],
+    ["Regional Technical Advisor, Health Program","gov"],
+    ["Sr. Veterinarian II - Poultry","gov"],
+    ["Veterinary Medical Officer","gov"],
+    ["Director - Applied Epidemiology Staff","np"],
+    ["State Public Health Veterinarian","gov"],
+    ["Veterinary Specialist-3, Public Health Veterinarian","gov"],
+    ["State Public Health Veterinarian I - Communicable Disease Branch, Zoonoses and One Health Unit","fp"],
+    ["Public Health Veterinarian","gov"],
+    ["Public Health Veterinarian (WMS Med Band)","gov"],
+    ["Assistant State Veterinarian","gov"],
+    ["Zoonotic and One Health Technical Advisor","gov"],
+    ["Veterinarian Manager 14 - Emergency Management","gov"],
+    ["State Public Health Veterinarian","gov"],
+    ["Assistant/Associate Professor Veterinary One Health","gov"],
+    ["Animal Health Officer (One Health)","gov"],
+    ["Animal Health Officer (One Health Intelligence and Early Warning)","gov"],
+    ["Veterinary Epidemiologist","gov"],
+    ["Animal Health Officer","aca"],
+    ["Global Health Security Lead Advisor","ig"],
+    ["One Health Veterinary Advisor","ig"],
+    ["One Health Advisor","ig"],
+    ["Antimicrobial Resistance Epidemiologist, Bureau of Communicable Disease","ig"],
+    ["Assistant/Associate Full Professor - Infectious Diseases and One Health","ig"],
+    ["Veterinarian Senior / Extension Animal Health Veterinarian","gov"],
+    ["Research Scientist – Veterinary Medical Officer (Pathology)","np"],
+    ["Public Health Veterinarian - Zoonotic Disease Branch Manager","aca"],
+    ["CDC Epidemic Intelligence Service (EIS) Fellowship","aca"],
+    ["CDC Public Health Associate Program (PHAP)","gov"],
+    ["CSTE Applied Epidemiology Fellowship","gov"],
+    ["One Health Residency","gov"],
+    ["Veterinary Resident-Grad Prgm","gov"],
+    ["Veterinary Public Health Resident - Animal Health Emergency Management","np"],
+    ["Assistant/Associate Clinical Professor of Public and One Health","aca"],
+    ["Director of the National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)","aca"],
+    ["Public Health Veterinarian","aca"],
+    ["K. Lisa Yang Wildlife Health Fellows Program","gov"],
+    ["Animal Health Specialist – USAID Jordan: Prevent, Detect, Respond Primary Health Care Activity","gov"],
+    ["Director of the Institute for Infectious Animal Diseases","aca"],
+    ["Veterinary Specialist","np"],
+    ["Senior Research Coordinator","aca"],
+    ["Project Manager","gov"],
+    ["Animal Health, Livestock and One Health Approach Specialist","aca"],
+    ["Zoonosis Control Fellowship","np"],
+    ["Adjunct Faculty – Master of Public Health (MPH) Program","ig"],
+    ["Program Manager","gov"],
+    ["Interdisciplinary – Biological Scientist / Veterinary Medical Officer","np"],
+    ["Senior Veterinarian","gov"],
+    ["Postdoctoral Research Fellow - Planetary Health and Human Nutrition","np"],
+    ["Term Assistant Professor - One Health","aca"],
+    ["Post-Doctoral Research Associate - Veterinary Public Health - One Health (College of Veterinary Medicine)","aca"],
+    ["Epidemiology and Veterinary Public Health Faculty","aca"],
+    ["Open-Rank Professor of Instruction/Professor of Practice Series","aca"],
+    ["Associate Professor/Professor of One Health Science","aca"],
+    ["Postdoctoral Scholar - Infectious Disease and Global Health","aca"],
+    ["Public Health Engagement Supervisor","aca"],
+    ["Research and Program Manager, Disease Ecology in a Changing World","aca"],
+    ["Post-Doctoral Fellow – University of Colorado Anschutz Centers for Health, Work & Environment","aca"],
+    ["One Health Specialist","gov"],
+    ["One Health Consultant – UNEP Regional Office for North America","ig"],
+    ["One Health Research Coordinator","np"],
+    ["Postdoctoral Health Analytics Scientist, Global Science","np"],
+    ["Mentees in the One Health WV","aca"],
+    ["Professorship in One Health (open rank)","aca"]
+  ];
+  var SECT = {gov:'Government', aca:'Academia', np:'Non-profit', ig:'Intergovernmental', fp:'For-profit'};
+  var ROLE_FAMILIES = [
+    ["Public Health Veterinarian", /public health veterinarian|zoonosis veterinarian/i, "public health veterinarian"],
+    ["Veterinary Medical Officer", /veterinary medical officer/i, "veterinary medical officer"],
+    ["Epidemiologist", /epidemiolog/i, "zoonotic disease epidemiologist"],
+    ["Animal Health Officer, Advisor or Specialist", /animal health (officer|advisor|specialist)|technical (advisor|specialist)/i, "animal health officer"],
+    ["One Health Coordinator, Specialist or Advisor", /one health (coordinator|specialist|advisor|consultant|veterinarian|veterinary advisor)|zoonotic and one health/i, "One Health coordinator"],
+    ["Program or Project Manager or Coordinator", /(program|project|programme|research).*(manager|coordinator|assistant)|program officer/i, "One Health program manager"],
+    ["Director, Chief or Lead", /director|chief|lead advisor|chair/i, "director zoonotic disease"],
+    ["Professor or Faculty", /professor|faculty|instruction/i, "professor One Health"],
+    ["Postdoc or Research Scientist", /postdoc|post-doc|research scientist/i, "postdoctoral One Health"],
+    ["Fellowship, Residency or Training Program", /fellowship|resident|residency|phap|eis\)|fellows program|mentees/i, "veterinary public health fellowship"],
+    ["Wildlife Health", /wildlife/i, "wildlife health veterinarian"],
+    ["Outreach and Communication", /outreach|communications|engagement/i, "public health outreach coordinator"]
+  ];
+  // phrases postings use, and an illustrative resume bullet, for each competency (same order as COMP_DEF)
+  var KW = [
+    [["One Health approach","multisectoral collaboration","transdisciplinary","interdisciplinary health","ecohealth","planetary health","human-animal-environment interface"],"Applied a One Health approach to [issue], bringing together veterinary, public health, and environmental partners."],
+    [["zoonotic disease","human-animal interface","vector-borne disease","wildlife-livestock-human contact","spillover","environmental drivers of disease","climate and health"],"Mapped how [disease or hazard] moves between wildlife, livestock, and people to inform [decision]."],
+    [["ecosystem health","disease ecology","wildlife health","habitat change","environmental impact"],"Assessed how [habitat change] affected animal and human health in [place]."],
+    [["biodiversity","conservation medicine","natural resource management","ecosystem services","protected areas"],"Linked biodiversity and land-use data to disease risk for [area]."],
+    [["public health practice","preventive medicine","population health","health promotion","community health","MPH"],"Applied core public health principles (prevention, equity, community engagement) to [program]."],
+    [["disease surveillance","early warning","syndromic surveillance","sentinel surveillance","reportable disease reporting","One Health intelligence"],"Analyzed [disease] surveillance data from [human and animal sources] to detect [signal] early."],
+    [["epidemiology","outbreak epidemiology","applied epidemiology","social determinants of health","health equity"],"Used epidemiologic methods to describe [outbreak or condition] by person, place, and time."],
+    [["biostatistics","statistical analysis (R, SAS, Stata)","data analytics","modeling","GIS and spatial analysis","regression"],"Analyzed [dataset] in [R, SAS, or Stata] using [method] to estimate [outcome]."],
+    [["qualitative methods","focus groups","key informant interviews","mixed methods","needs assessment","thematic analysis"],"Conducted [number] interviews or focus groups with [stakeholders] and coded themes to inform [decision]."],
+    [["research design","peer-reviewed publications","grant writing","scientific writing","literature review","evidence-based practice"],"Designed and carried out [study], contributing to [paper, report, or presentation]."],
+    [["risk assessment","risk analysis","risk communication","biosecurity","biosafety","hazard identification"],"Assessed the risk of [hazard] using [framework] and recommended mitigation steps to [audience]."],
+    [["infectious disease control","zoonotic disease prevention","pathogen","vaccination programs","antimicrobial resistance (AMR)","disease management"],"Supported prevention and control of [zoonotic disease] through [vaccination, education, or response] in [setting]."],
+    [["outbreak investigation","emergency response","emergency preparedness","incident command system (ICS)","rapid response","contact tracing"],"Took part in the investigation of [outbreak], from case definition to control recommendations."],
+    [["program management","project coordination","budget and grant management","work plans and deliverables","monitoring and evaluation (M&E)","donor reporting"],"Managed [budget, timeline, and deliverables] for a [number]-partner program, reporting to [funder]."],
+    [["implementation science","program evaluation","pilot and scale-up","knowledge translation","quality improvement","dissemination"],"Evaluated [program] using [framework] and used the findings to [adapt or scale] it."],
+    [["team leadership","supervision","strategic direction","mentoring","negotiation","manage staff"],"Led a team of [number] on [task], setting priorities and resolving conflicts across [disciplines]."],
+    [["systems thinking","systems approach","health systems strengthening","strategic planning","complex problem solving","holistic approach"],"Mapped the system around [problem], showing how [sectors] interact and where to intervene."],
+    [["policy development","policy analysis","advocacy","regulatory compliance","government relations","guideline development"],"Drafted [brief or guidance] for [agency] on [issue], based on [evidence]."],
+    [["partnership building","stakeholder engagement","cross-sector collaboration","multidisciplinary teams","coalition building","teamwork"],"Built and maintained partnerships with [partners] across human, animal, and environmental health."],
+    [["written and verbal communication","presentations","public speaking","outreach","report writing","media engagement"],"Presented [findings] to [audience] and wrote [report or materials] in plain language."],
+    [["behavior change communication","health education","community engagement","community mobilization","social marketing","health literacy"],"Designed [campaign or training] to change [behavior] among [community], using [model]."],
+    [["cultural competence","cross-cultural work","diversity, equity, and inclusion","ethical practice","indigenous knowledge","community trust"],"Adapted [program] to local values and practices by working with [community leaders]."],
+    [["gender-sensitive programming","gender equity","gender mainstreaming","women's participation","intersectional analysis"],"Included gender analysis in [assessment or program], adjusting [activity] to reach [group]."]
+  ];
+  var kwQuery = '';
+  function enc(s){ return encodeURIComponent(s); }
+
+  function roleCards(q){
+    var out = [], ql = q.toLowerCase();
+    ROLE_FAMILIES.forEach(function(f){
+      var hits = TITLE_DATA.filter(function(r){ return f[1].test(r[0]); });
+      if(!hits.length) return;
+      var seen = {}, ex = [];
+      hits.forEach(function(r){ if(!seen[r[0]]){ seen[r[0]] = 1; ex.push(r[0]); } });
+      if(ql && (f[0]+' '+ex.join(' ')+' '+f[2]).toLowerCase().indexOf(ql)<0) return;
+      var sec = {}; hits.forEach(function(r){ sec[r[1]] = (sec[r[1]]||0)+1; });
+      out.push(h('div',{class:'role'},
+        h('h3',{text:f[0]}),
+        h('p',{class:'small',text:hits.length+' of '+TITLE_DATA.length+' postings'}),
+        h('div',{class:'secbar'}, Object.keys(sec).sort(function(a,b){ return sec[b]-sec[a]; }).map(function(k){ return h('span',{text:SECT[k]+' '+sec[k]}); })),
+        h('div',{class:'cap',style:'margin-top:10px',text:'Titles in the postings'}),
+        h('ul',{class:'ex'}, ex.slice(0,4).map(function(t){ return h('li',{text:t}); })),
+        ex.length>4 ? h('p',{class:'small',text:'and '+(ex.length-4)+' more'}) : null,
+        h('div',{class:'cap',style:'margin-top:10px',text:'Search for'}),
+        h('div',{class:'row'}, h('b',{text:'“'+f[2]+'”'}),
+          h('a',{class:'textbtn',href:'https://www.linkedin.com/jobs/search/?keywords='+enc(f[2]),target:'_blank',rel:'noopener noreferrer',text:'LinkedIn ↗'}),
+          h('a',{class:'textbtn',href:'https://www.indeed.com/jobs?q='+enc(f[2]),target:'_blank',rel:'noopener noreferrer',text:'Indeed ↗'}))
+      ));
+    });
+    return out;
+  }
+  function compItems(q){
+    var out = [], ql = q.toLowerCase();
+    Object.keys(DOMAINS).forEach(function(d){
+      var items = [];
+      COMPS.forEach(function(c,i){
+        if(c.domain!==d) return;
+        var k = KW[i];
+        if(ql && (c.label+' '+k[0].join(' ')).toLowerCase().indexOf(ql)<0) return;
+        var det = h('details',{class:'kwc'});
+        if(ql) det.open = true;
+        det.append(h('summary',null, h('span',{class:'kwl',text:c.label}), h('span',{class:'small',text:k[0].slice(0,3).join(', ')+'…'})));
+        det.append(h('div',{class:'kwb'},
+          h('div',{class:'cap',text:'Words postings use'}),
+          h('div',{class:'chips2'}, k[0].map(function(w){ return h('span',{class:'syn',text:w}); })),
+          h('div',{class:'cap',style:'margin-top:14px',text:'Example bullet for your resume'}),
+          h('blockquote',{class:'exq',text:k[1]}),
+          h('p',{class:'small',text:'Illustrative phrasing to adapt with your own details. Not taken from a specific posting.'}),
+          h('div',{class:'cap',style:'margin-top:14px',text:'Description of competency'}),
+          h('ul',{class:'ex'}, c.desc.map(function(x){ return h('li',{text:x}); }))
+        ));
+        items.push(det);
+      });
+      if(items.length) out.push(h('div',{class:'domain'}, h('h2',{text:d+'. '+DOMAINS[d]}), items));
+    });
+    return out;
+  }
+  function kwView(){
+    var rolesBox = h('div',{class:'roles'}), compsBox = h('div'), count = h('p',{class:'small'});
+    function fill(){
+      rolesBox.innerHTML = ''; compsBox.innerHTML = '';
+      var rc = roleCards(kwQuery), cc = compItems(kwQuery);
+      rc.forEach(function(x){ rolesBox.append(x); }); cc.forEach(function(x){ compsBox.append(x); });
+      if(!rc.length) rolesBox.append(h('p',{class:'empty',text:'No job titles match.'}));
+      if(!cc.length) compsBox.append(h('p',{class:'empty',style:'margin-top:14px',text:'No competencies match.'}));
+    }
+    var input = h('input',{type:'text',id:'kw-q',placeholder:'Search titles and skills, e.g. surveillance, GIS, coordinator'}); input.value = kwQuery;
+    input.addEventListener('input', function(){ kwQuery = input.value.trim(); fill(); });
+    fill();
+    return page(pagehead([{t:'Home',go:'home'},{t:'Keyword Guide'}], 'Keyword Guide', 'The job titles to search for and the words employers use for each competency, so you can find the right postings and describe your experience in their language.'),
+      [
+        h('div',{class:'kwsearch'}, h('label',{class:'fl',for:'kw-q',text:'Search the guide'}), input),
+        h('div',{class:'section',style:'margin-top:30px'}, h('h2',{text:'Job titles to search for'}),
+          h('p',{class:'hint',text:'Role groups built from the '+TITLE_DATA.length+' One Health postings collected for this project. A title can fall in more than one group.'}),
+          rolesBox),
+        h('div',{class:'section'}, h('h2',{text:'Skills and the words employers use'}),
+          h('p',{class:'hint',text:'Search for these phrases in postings, and use them in your resume and cover letter where they honestly describe what you have done.'}),
+          compsBox)
+      ]);
+  }
+
+  // ----- Skill Matrix -----
+  function matrixView(){
+    var seg = h('div',{class:'seg',role:'group','aria-label':'Matrix type'},
+      h('button',{type:'button',text:'Core matrix','aria-pressed':String(mtab==='core'),onclick:function(){ mtab='core'; sheetId=null; render(); }}),
+      h('button',{type:'button',text:'Personalized (per job posting)','aria-pressed':String(mtab==='personal'),onclick:function(){ mtab='personal'; render(); }})
+    );
+    var inner = mtab==='core' ? coreBody() : (sheetId && findSheet(sheetId) ? sheetBody(findSheet(sheetId)) : personalHome());
+    var lede = mtab==='core'
+      ? 'The 23 competencies employers in the One Health field value, across five areas. Rate yourself and plan how to show and build each one.'
+      : 'Paste a job description and the matrix reads it: which core competencies matter most for that job, with the lines from the posting that show it.';
+    return page(pagehead([{t:'Home',go:'home'},{t:'Skill Matrix'}], 'Skill Matrix', lede), [seg, inner]);
+  }
+  function findSheet(id){ return data.sheets.filter(function(s){ return s.id===id; })[0]; }
+
+  function coreBody(){
+    var counter = h('p',{class:'count',id:'counter',text:ratedCount()+' of '+COMPS.length+' rated'});
+    var out = h('div',null,
+      h('div',{class:'steps'},
+        h('div',{class:'step'},h('b',{text:'Rate'}),h('span',{text:'How confident are you today, from 1 to 5?'})),
+        h('div',{class:'step'},h('b',{text:'Show'}),h('span',{text:'What could you point to as evidence?'})),
+        h('div',{class:'step'},h('b',{text:'Grow'}),h('span',{text:'What is one concrete next step?'}))),
+      h('p',{class:'notice',text:'Skip any competency you like. Please do not enter names or other personal details in the notes. Your ratings are tracked on the Dashboard.'}),
+      counter);
+    Object.keys(DOMAINS).forEach(function(d){
+      var sec = h('div',{class:'domain'}, h('h2',{text:d+'. '+DOMAINS[d]}));
+      COMPS.filter(function(c){ return c.domain===d; }).forEach(function(c){
+        var row = data.core.rows[c.id] || (data.core.rows[c.id] = {conf:0, demo:'', imp:''});
+        var sc = scale('core-'+c.id+'-conf', row.conf, function(v){ row.conf = v; snapshot(); save(); counter.textContent = ratedCount()+' of '+COMPS.length+' rated'; }, 'Confidence in '+c.label);
+        sec.append(h('div',{class:'card'},
+          h('div',{class:'label',text:c.label}),
+          h('div',{class:'desc'}, h('div',{class:'cap',text:'Description of competency'}), h('ul',null,c.desc.map(function(x){ return h('li',{text:x}); }))),
+          sc,
+          h('div',{class:'scalecap'},h('span',{text:'Not confident'}),h('span',{text:'Very confident'})),
+          h('div',{class:'f2'},
+            field('How I can demonstrate it','core-'+c.id+'-demo', textarea('core-'+c.id+'-demo', row.demo, 'A project, course, or experience that shows this', function(v){ row.demo = v; })),
+            field('How I can improve','core-'+c.id+'-imp', textarea('core-'+c.id+'-imp', row.imp, 'A concrete next step', function(v){ row.imp = v; }))
+          )));
+      });
+      out.append(sec);
+    });
+    return out;
+  }
+
+  function personalHome(){
+    var out = h('div');
+    if(data.sheets.length){
+      out.append(h('h2',{text:'Your postings',style:'margin-bottom:14px'}));
+      out.append(h('div',{class:'sheetlist'}, data.sheets.map(function(s){
+        var hi = COMPS.filter(function(c){ return effImp(s.rows[c.id]||{})===3; }).length;
+        return h('div',{class:'sheetcard'}, h('h3',{text:s.title}), h('p',{class:'small',text:dayLabel(dayKey(s.created))+' \u00b7 '+hi+' high-importance skills'}),
+          h('div',null,h('button',{class:'btn ghost sm',type:'button',text:'Open',onclick:function(){ sheetId = s.id; render(); window.scrollTo(0,0); }})));
+      })));
+    }
+    var title = h('input',{type:'text',id:'np-title',placeholder:'e.g., Program Coordinator, State Health Department'});
+    var url = h('input',{type:'url',id:'np-url',placeholder:'https://\u2026 (optional)'});
+    var text = h('textarea',{id:'np-text',class:'big',placeholder:'Paste the full job description here'});
+    var err = h('p',{class:'err',hidden:true});
+    var go1 = h('button',{class:'btn',type:'button',text:'Analyze posting',onclick:function(){
+      var t = text.value.trim();
+      if(t.length<60){ err.hidden=false; err.textContent='Paste the full job description (at least a few sentences) so the matrix has something to read.'; return; }
+      var s = newSheet(title.value.trim(), url.value.trim(), t); data.sheets.unshift(s); save(); sheetId = s.id; render(); window.scrollTo(0,0);
+    }});
+    out.append(h('div',{class:'panel'},
+      h('h2',{text:data.sheets.length?'Analyze another posting':'Analyze a job posting',style:'font-size:1.2rem;margin-bottom:6px'}),
+      h('p',{class:'hint',text:'The matrix reads the text and suggests how important each core competency is for this job, using the words and sections of the posting. You can change every suggestion.'}),
+      h('div',{class:'formgrid'},
+        h('div',{class:'formgrid two'}, field('Job title','np-title',title), field('Link to the posting','np-url',url)),
+        field('Job description','np-text',text),
+        h('div',null, go1, err))));
+    return out;
+  }
+
+  function sheetBody(s){
+    var wrap = h('div');
+    var delBtn = armed(h('button',{class:'textbtn',type:'button'}), 'Delete this posting', 'Click again to delete', function(){
+      data.sheets = data.sheets.filter(function(x){ return x.id!==s.id; }); save(); sheetId = null; render();
+    });
+    wrap.append(h('div',{class:'sheetbar'},
+      h('button',{class:'btn ghost sm',type:'button',text:'\u2190 All postings',onclick:function(){ sheetId = null; render(); window.scrollTo(0,0); }}), delBtn));
+
+    var title = h('input',{type:'text',id:s.id+'-title'}); title.value = s.title;
+    var url = h('input',{type:'url',id:s.id+'-url',placeholder:'https://\u2026'}); url.value = s.url||'';
+    var t1, t2;
+    title.addEventListener('input', function(){ s.title = title.value; clearTimeout(t1); t1 = setTimeout(save,500); });
+    url.addEventListener('input', function(){ s.url = url.value; clearTimeout(t2); t2 = setTimeout(save,500); });
+    var linkRow = h('div',{class:'formgrid two'}, field('Job title', s.id+'-title', title), field('Link to the posting', s.id+'-url', url));
+    wrap.append(linkRow);
+    if(s.url) wrap.append(h('p',{style:'margin-top:6px'},h('a',{href:s.url,target:'_blank',rel:'noopener noreferrer',class:'textbtn',text:'Open posting \u2197'})));
+
+    var strip = h('div',{class:'strip',id:'strip'});
+    wrap.append(strip);
+    function refreshStrip(){
+      var n = [0,0,0,0], gaps = 0;
+      COMPS.forEach(function(c){ var r = s.rows[c.id]; var e = effImp(r); n[e]++; if(e>=2 && r.conf && r.conf<=2) gaps++; });
+      s.custom.forEach(function(r){ n[r.imp||0]++; if((r.imp||0)>=2 && r.conf && r.conf<=2) gaps++; });
+      strip.innerHTML = '';
+      [3,2,1,0].forEach(function(i){ strip.append(h('span',null,IMP[i]+': ',h('b',{text:String(n[i])}))); });
+      strip.append(h('span',null,'Priority gaps: ',h('b',{text:String(gaps)})));
+    }
+    refreshStrip();
+
+    wrap.append(h('div',{class:'row',style:'margin:14px 0 4px'}, h('span',{class:'small',text:'Sort by'}),
+      h('div',{class:'seg',style:'margin:0'},
+        h('button',{type:'button',text:'Importance','aria-pressed':String(sortMode==='importance'),onclick:function(){ sortMode='importance'; render(); }}),
+        h('button',{type:'button',text:'Area','aria-pressed':String(sortMode==='area'),onclick:function(){ sortMode='area'; render(); }}))));
+
+    function card(c){ return sheetCard(s, c, refreshStrip); }
+    if(sortMode==='importance'){
+      [3,2,1,0].forEach(function(level){
+        var items = COMPS.filter(function(c){ return effImp(s.rows[c.id])===level; });
+        if(!items.length) return;
+        wrap.append(h('div',{class:'group'}, IMP[level]+(level===0?' in this posting':' importance'), h('small',{text:items.length+' competenc'+(items.length===1?'y':'ies')})));
+        items.forEach(function(c){ wrap.append(card(c)); });
+      });
+    } else {
+      Object.keys(DOMAINS).forEach(function(d){
+        var sec = h('div',{class:'domain'}, h('h2',{text:d+'. '+DOMAINS[d]}));
+        COMPS.filter(function(c){ return c.domain===d; }).forEach(function(c){ sec.append(card(c)); });
+        wrap.append(sec);
+      });
+    }
+
+    // other competencies
+    var other = h('div',{class:'domain'}, h('h2',{text:'Other competencies for this job'}));
+    other.append(h('p',{class:'hint',text:'Add anything this posting asks for that is not among the 23 core competencies.'}));
+    var chipWrap = h('div',{class:'chips',style:'margin-bottom:16px'});
+    (s.extras||[]).filter(function(x){ return !s.custom.some(function(r){ return r.label===x.label; }); }).forEach(function(x){
+      chipWrap.append(h('button',{class:'chip',type:'button',text:'+ '+x.label,title:'Found in the posting',onclick:function(){
+        s.custom.push({label:x.label, imp:x.level, evidence:x.ev[0]||'', conf:0, demo:'', improve:''}); save(); render();
+      }}));
+    });
+    if(chipWrap.children.length){ other.append(h('div',{class:'cap',text:'Found in this posting'}), chipWrap); }
+    s.custom.forEach(function(r, idx){ other.append(customCard(s, r, idx, refreshStrip)); });
+    other.append(h('button',{class:'btn ghost',type:'button',text:'+ Add a competency',onclick:function(){
+      s.custom.push({label:'', imp:2, evidence:'', conf:0, demo:'', improve:''}); save(); render();
+    }}));
+    wrap.append(other);
+
+    // posting text
+    var pt = textarea(s.id+'-text', s.text, '', function(v){ s.text = v; }, 'big');
+    wrap.append(h('details',{class:'pt'}, h('summary',{text:'Posting text'}),
+      h('div',{style:'margin-top:12px'}, pt),
+      h('div',{style:'margin-top:10px'}, h('button',{class:'btn ghost sm',type:'button',text:'Re-analyze',onclick:function(){ s.text = pt.value; analyzeInto(s); save(); render(); }}),
+        h('span',{class:'small',style:'margin-left:12px',text:'Updates the suggestions. Importance levels you changed by hand are kept.'}))));
+    return wrap;
+  }
+
+  function impSelect(id, value, onChange, skipZero){
+    var sel = h('select',{id:id});
+    IMP.forEach(function(l,i){ if(skipZero && i===0) return; var o = h('option',{value:String(i),text:l}); if(i===value) o.selected = true; sel.append(o); });
+    sel.addEventListener('change', function(){ onChange(parseInt(sel.value,10)); });
+    return sel;
+  }
+
+  function sheetCard(s, c, refreshStrip){
+    var r = s.rows[c.id];
+    var card = h('div',{class:'card imp'+effImp(r)});
+    var gap = h('span',{class:'gap',text:'Priority gap'});
+    var sug = h('span',{class:'small'});
+    function refresh(){
+      var e = effImp(r);
+      card.className = 'card imp'+e;
+      gap.hidden = !(e>=2 && r.conf && r.conf<=2);
+      sug.textContent = (r.ovr!=null && r.ovr!==r.auto) ? 'Suggested from posting: '+IMP[r.auto] : '';
+    }
+    var sel = impSelect(s.id+'-'+c.id+'-imp', effImp(r), function(v){ r.ovr = v; refresh(); refreshStrip(); save(); });
+    card.append(h('div',{class:'cardtop'}, h('div',{class:'label',text:c.label}), gap, h('div',{class:'impwrap'}, h('label',{for:s.id+'-'+c.id+'-imp',text:'Importance'}), sel)));
+    var cc = coreConf(c.id);
+    card.append(h('div',{class:'meta'}, 'Core matrix rating: '+(cc? cc+'/5' : 'not rated yet')+' ', sug));
+    if(r.ev && r.ev.length){
+      card.append(h('div',{class:'cap',text:'From the posting'}));
+      card.append(h('div',{class:'ev'}, r.ev.map(function(t){ var b = h('blockquote'); highlight(b, t, c.terms); return b; })));
+    } else card.append(h('div',{class:'noev',text:'Not found in the posting text.'}));
+    card.append(h('div',{class:'fl',text:'My confidence for this job'}));
+    card.append(scale(s.id+'-'+c.id+'-conf', r.conf||0, function(v){ r.conf = v; refresh(); refreshStrip(); save(); }, 'Confidence in '+c.label+' for this job'));
+    card.append(h('div',{class:'f2'},
+      field('How I can demonstrate it', s.id+'-'+c.id+'-demo', textarea(s.id+'-'+c.id+'-demo', r.demo, 'Evidence that matches what this posting asks for', function(v){ r.demo = v; })),
+      field('How I can improve', s.id+'-'+c.id+'-imp2', textarea(s.id+'-'+c.id+'-imp2', r.imp, 'A concrete next step', function(v){ r.imp = v; }))));
+    refresh();
+    return card;
+  }
+
+  function customCard(s, r, idx, refreshStrip){
+    var key = s.id+'-x'+idx;
+    var card = h('div',{class:'card imp'+(r.imp||0)});
+    var gap = h('span',{class:'gap',text:'Priority gap'});
+    function refresh(){ card.className = 'card imp'+(r.imp||0); gap.hidden = !((r.imp||0)>=2 && r.conf && r.conf<=2); }
+    var name = h('input',{type:'text',id:key+'-name',placeholder:'Name this competency','aria-label':'Competency name'}); name.value = r.label||'';
+    var tn; name.addEventListener('input', function(){ r.label = name.value; clearTimeout(tn); tn = setTimeout(save,500); });
+    var sel = impSelect(key+'-imp', r.imp||0, function(v){ r.imp = v; refresh(); refreshStrip(); save(); });
+    card.append(h('div',{class:'cardtop'}, h('div',{class:'label'}, name), gap, h('div',{class:'impwrap'}, h('label',{for:key+'-imp',text:'Importance'}), sel),
+      h('button',{class:'textbtn',type:'button',text:'Remove',onclick:function(){ s.custom.splice(idx,1); save(); render(); }})));
+    card.append(field('What the posting says', key+'-ev', textarea(key+'-ev', r.evidence, 'Quote or paraphrase the relevant line', function(v){ r.evidence = v; })));
+    card.append(h('div',{class:'fl',style:'margin-top:12px',text:'My confidence for this job'}));
+    card.append(scale(key+'-conf', r.conf||0, function(v){ r.conf = v; refresh(); refreshStrip(); save(); }, 'Confidence in this competency'));
+    card.append(h('div',{class:'f2'},
+      field('How I can demonstrate it', key+'-demo', textarea(key+'-demo', r.demo, 'Evidence you could show', function(v){ r.demo = v; })),
+      field('How I can improve', key+'-improve', textarea(key+'-improve', r.improve, 'A concrete next step', function(v){ r.improve = v; }))));
+    refresh();
+    return card;
+  }
+
+  function render(){
+    renderNav();
+    var main = document.getElementById('main'); main.innerHTML = '';
+    main.append(view==='matrix' ? matrixView() : view==='dash' ? dashView() : view==='kw' ? kwView() : homeView());
+    var sb = document.getElementById('sampleBtn'); sb.replaceWith(sb.cloneNode(false));
+    sb = document.getElementById('sampleBtn');
+    if(hasData()) armed(sb, 'Load sample data', 'Replaces your data. Click again', function(){ loadSample(); render(); });
+    else { sb.textContent = 'Load sample data'; sb.addEventListener('click', function(){ loadSample(); render(); }); }
+  }
+
+  armed(document.getElementById('clearBtn'), 'Clear my saved data', 'Click again to clear everything', function(){
+    data = {core:{rows:{}, history:[]}, sheets:[], sample:false}; persist(); sheetId = null; render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>

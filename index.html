@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<style>[hidden]{display:none!important}img{max-width:100%}</style>
 <title>One Health Career Toolkit</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
@@ -223,6 +222,44 @@
   .syn{background:var(--band);border:1px solid var(--border);padding:3px 10px;border-radius:999px;font-size:.88rem}
   blockquote.exq{margin:0 0 6px;padding:8px 12px;border-left:3px solid var(--scarlet);background:var(--band);font-size:.95rem}
 
+
+  .steps-ed{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  .stepr{display:grid;grid-template-columns:auto 1fr auto auto;gap:8px;align-items:center;width:100%}
+  .stepr input[type=text],.stepr input[type=date]{padding:7px 8px;border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:.92rem;min-width:0}
+  .stepr input[type=checkbox]{width:20px;height:20px;accent-color:var(--scarlet)}
+  .stepr.done input[type=text]{text-decoration:line-through;color:var(--muted)}
+  @media(max-width:600px){.stepr{grid-template-columns:auto 1fr auto}.stepr input[type=date]{grid-column:2 / 3}}
+  .plans{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+  .plan{background:var(--surface);border:1px solid var(--border);padding:16px;min-width:0}
+  .plan-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+  .plan-conf{display:flex;align-items:center;gap:6px}
+  .spark{display:block}
+  .spark .sp{fill:none;stroke:var(--scarlet);stroke-width:2}
+  .spark .spd{fill:var(--scarlet)}
+  .dsteps{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+  .dstep{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:start;font-size:.92rem;cursor:pointer}
+  .dstep input{width:18px;height:18px;margin-top:3px;accent-color:var(--scarlet)}
+  .dstep .src{grid-column:2;font-size:.78rem;color:var(--muted)}
+  .dstep .due{grid-column:2;font-size:.78rem;color:var(--muted)}
+  .dstep .due.over{color:#B3261E;font-weight:700}
+  :root[data-theme="dark"] .dstep .due.over{color:#FF9A93}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dstep .due.over{color:#FF9A93}}
+  .dstep.done .dt{text-decoration:line-through;color:var(--muted)}
+  .nudge{margin-top:12px;padding:10px 12px;background:var(--band);border-left:4px solid var(--scarlet);display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:.9rem}
+  .nudge[hidden]{display:none}
+  .cps{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:4px 24px;margin-top:10px}
+  .cp{display:grid;grid-template-columns:1fr 96px 64px;gap:8px;align-items:center;padding:4px 0;border-bottom:1px solid var(--border);font-size:.88rem}
+  .cp .val{text-align:right;font-weight:700}
+  .cp .val.up{color:#1B6B3A}
+  :root[data-theme="dark"] .cp .val.up{color:#7FD39B}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cp .val.up{color:#7FD39B}}
+  .evc{background:var(--surface);border:1px solid var(--border);padding:12px 14px;margin-top:10px}
+  .evc-h{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+  .evc-d{font-size:.95rem;margin:4px 0 8px;white-space:pre-wrap}
+  .evform{margin-top:8px}
+  .evform select,.evform input,.evform textarea{width:100%;padding:8px;border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:.95rem}
+  .evform textarea{min-height:90px}
+
   footer.site{background:var(--foot);color:var(--foot-fg);padding-block:26px;font-size:.88rem}
   footer.site .inner{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;align-items:flex-start}
   footer.site b{font-family:var(--serif);font-size:1.05rem;color:#fff}
@@ -233,6 +270,8 @@
   @media (prefers-reduced-motion: reduce){.saved{transition:none}}
 </style>
 
+
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
 </head>
 <body>
 <header class="site">
@@ -307,13 +346,13 @@
   ];
   var NAV = [
     {id:'home', t:'Home'}, {id:'dash', t:'Dashboard'}, {id:'matrix', t:'Skill Matrix'},
-    {id:'kw', t:'Keyword Guide'}, {id:'map', t:'Employer Map \u2197', href:MAP_URL}
+    {id:'kw', t:'Keyword Guide'}, {id:'bank', t:'Evidence Bank'}, {id:'map', t:'Employer Map \u2197', href:MAP_URL}
   ];
 
   // ---------- storage ----------
   var data = {core:{rows:{}, history:[]}, sheets:[], sample:false};
   try{ var raw = localStorage.getItem('ohPortalProto2'); if(raw) data = JSON.parse(raw); }catch(e){}
-  data.core = data.core || {rows:{}, history:[]}; data.core.rows = data.core.rows || {}; data.core.history = data.core.history || []; data.sheets = data.sheets || [];
+  data.core = data.core || {rows:{}, history:[]}; data.core.rows = data.core.rows || {}; data.core.history = data.core.history || []; data.sheets = data.sheets || []; data.evidence = data.evidence || [];
   function persist(){ try{ localStorage.setItem('ohPortalProto2', JSON.stringify(data)); }catch(e){} }
 
   // ---------- helpers ----------
@@ -428,7 +467,7 @@
   function analyzeInto(s){
     var res = analyze(s.text);
     COMPS.forEach(function(c,i){
-      var r = s.rows[c.id] || (s.rows[c.id] = {ovr:null, conf:null, demo:'', imp:''});
+      var r = s.rows[c.id] || (s.rows[c.id] = {ovr:null, conf:null, demo:'', imp:'', steps:[]});
       r.auto = res.comp[i].level; r.ev = res.comp[i].ev;
       if(r.conf==null) r.conf = coreConf(c.id);
     });
@@ -460,12 +499,25 @@
     ids.forEach(function(id,i){
       r0[id] = 1 + (i*5)%3; r1[id] = Math.min(5, r0[id] + (i%2)); r2[id] = Math.min(5, r1[id] + (i%3===0?1:0) + (i%4===0?1:0));
     });
-    data = {core:{rows:{}, history:[{t:dayKey(now-60*DAY), r:r0},{t:dayKey(now-28*DAY), r:r1},{t:dayKey(now), r:r2}]}, sheets:[], sample:true};
-    ids.forEach(function(id){ data.core.rows[id] = {conf:r2[id], demo:'', imp:''}; });
+    data = {core:{rows:{}, history:[{t:dayKey(now-60*DAY), r:r0},{t:dayKey(now-28*DAY), r:r1},{t:dayKey(now), r:r2}]}, sheets:[], evidence:[], sample:true};
+    ids.forEach(function(id){ data.core.rows[id] = {conf:r2[id], demo:'', imp:'', steps:[]}; });
     data.sheets = SAMPLE_TEXTS.map(function(x,i){ return newSheet(x[0], '', x[1], now-(i+1)*3*DAY); });
+    var t0 = dayKey(now), tp = dayKey(now-5*DAY), tf = dayKey(now+12*DAY);
+    var cr = data.core.rows;
+    cr.c13.steps = [{t:'Complete an intro course on project budgeting', done:true, doneAt:now-3*DAY, due:tp},{t:'Shadow a grant manager for one afternoon', done:false, due:tp},{t:'Draft a budget for a student event', done:false, due:tf}];
+    cr.c7.steps = [{t:'Finish the online biostatistics module', done:true, doneAt:now-2*DAY, due:''},{t:'Analyze a public surveillance dataset in R', done:true, doneAt:now-1*DAY, due:''}];
+    cr.c18.steps = [{t:'Interview two practitioners about stakeholder engagement', done:false, due:tf}];
+    cr.c7.confAt = now-4*DAY;
+    if(data.sheets[0] && data.sheets[0].rows.c15) data.sheets[0].rows.c15.steps = [{t:'Offer to lead a team meeting in my next rotation', done:false, due:tf}];
+    data.evidence = [
+      {id:'e1',cid:'c1',type:'Course or training',title:'One Health graduate seminar',date:'',desc:'Semester-long seminar on human, animal and environmental health links; wrote a case brief on avian influenza.',link:''},
+      {id:'e2',cid:'c7',type:'Project',title:'Rabies vaccination coverage analysis',date:'',desc:'Cleaned and analyzed county-level data in R and presented findings to the class.',link:''},
+      {id:'e3',cid:'c7',type:'Certification',title:'Biostatistics certificate',date:'',desc:'Completed an online biostatistics certificate.',link:''},
+      {id:'e4',cid:'c18',type:'Volunteering',title:'Community vaccination clinic volunteer',date:'',desc:'Helped coordinate 40 volunteers and a partner clinic for a weekend event.',link:''}
+    ];
     persist();
   }
-  function hasData(){ return data.sheets.length>0 || data.core.history.length>0 || Object.keys(data.core.rows).some(function(k){ var r = data.core.rows[k]; return r.conf || r.demo || r.imp; }); }
+  function hasData(){ return data.sheets.length>0 || data.core.history.length>0 || Object.keys(data.core.rows).some(function(k){ var r = data.core.rows[k]; return r.conf || r.demo || r.imp || (r.steps && r.steps.length); }) || data.evidence.length>0; }
 
   // ---------- views ----------
   var view = 'home', mtab = 'core', sheetId = null, sortMode = 'importance';
@@ -501,6 +553,7 @@
       {t:'Dashboard', d:'Your summary: postings analyzed, progress on the Skill Matrix, and the skills to work on first.', go:'dash'},
       {t:'Skill Matrix', d:'Rate your confidence in 23 core competencies, or analyze a specific job posting to see what it asks for.', go:'matrix'},
       {t:'Keyword Guide', d:'Job titles to search for and the words employers use for each competency, to find postings and describe your experience.', go:'kw'},
+      {t:'Evidence Bank', d:'Store proof of your skills for each competency and download it for resumes, cover letters and interviews.', go:'bank'},
       {t:'Employer Map', d:'Browse 230 One Health organizations by sector and region.', href:MAP_URL}
     ];
     return page(
@@ -647,6 +700,8 @@
       h('div',{class:'twocol wide'}, radarPanel, rankPanel),
       h('div',{style:'margin-top:20px'}, gridPanel)));
 
+    body.push(planSection());
+
     // evolution
     var evo = h('div',{class:'panel'});
     evo.append(h('div',{class:'cap',text:'Skill Matrix over time'}));
@@ -665,7 +720,7 @@
       gains.length ? gains.slice(0,5).map(function(g){
         return h('div',{class:'barrow'}, h('span',{text:g.c.label}), h('div',{class:'track'},h('div',{class:'fill',style:'width:'+(g.to/5*100)+'%'})), h('span',{class:'val',text:g.from+' → '+g.to}));
       }) : h('p',{class:'empty',text:hst.length>1 ? 'No increases yet.' : 'Gains appear after your second check-in.'}));
-    body.push(h('div',{class:'section'}, h('h2',{text:'Your progress'}), h('div',{class:'twocol',style:'margin-top:14px'}, evo, gainsPanel)));
+    body.push(h('div',{class:'section'}, h('h2',{text:'Your progress'}), h('div',{class:'twocol',style:'margin-top:14px'}, evo, gainsPanel), h('div',{style:'margin-top:20px'}, compProgressPanel())));
 
     // postings table
     var tbl;
@@ -901,6 +956,305 @@
       ]);
   }
 
+  // ----- improvement plan helpers -----
+  function fixSteps(r, oldKey){
+    if(!r.steps){ var t = (r[oldKey]||'').trim(); r.steps = t ? [{t:t, done:false, due:''}] : []; r[oldKey] = ''; }
+  }
+  function migrate(){
+    Object.keys(data.core.rows).forEach(function(k){ fixSteps(data.core.rows[k], 'imp'); });
+    data.sheets.forEach(function(s){
+      Object.keys(s.rows).forEach(function(k){ fixSteps(s.rows[k], 'imp'); });
+      (s.custom||[]).forEach(function(r){ fixSteps(r, 'improve'); });
+    });
+  }
+  function stepsEditor(steps, idp){
+    var wrap = h('div',{class:'steps-ed'}), timer;
+    function delaySave(){ clearTimeout(timer); timer = setTimeout(save, 500); }
+    function draw(focusLast){
+      wrap.innerHTML = '';
+      steps.forEach(function(st, i){
+        var id = idp+'-st'+i, row;
+        var cb = h('input',{type:'checkbox',id:id+'-d','aria-label':'Done'}); cb.checked = !!st.done;
+        cb.addEventListener('change', function(){ st.done = cb.checked; st.doneAt = st.done ? Date.now() : null; row.classList.toggle('done', st.done); save(); });
+        var tx = h('input',{type:'text',id:id+'-t',placeholder:'A concrete step','aria-label':'Step'}); tx.value = st.t||'';
+        tx.addEventListener('input', function(){ st.t = tx.value; delaySave(); });
+        var due = h('input',{type:'date',id:id+'-due','aria-label':'Target date'}); due.value = st.due||'';
+        due.addEventListener('change', function(){ st.due = due.value; save(); });
+        var rm = h('button',{type:'button',class:'textbtn',text:'Remove',onclick:function(){ steps.splice(i,1); save(); draw(); }});
+        row = h('div',{class:'stepr'+(st.done?' done':'')}, cb, tx, due, rm);
+        wrap.append(row);
+      });
+      wrap.append(h('button',{class:'textbtn',type:'button',text:'+ Add step',onclick:function(){ steps.push({t:'',done:false,due:''}); draw(true); }}));
+      if(focusLast){ var ins = wrap.querySelectorAll('input[type=text]'); if(ins.length) ins[ins.length-1].focus(); }
+    }
+    draw();
+    return wrap;
+  }
+  function stepsField(label, steps, idp){ return h('div',null, h('div',{class:'fl',text:label}), stepsEditor(steps, idp)); }
+  function histVals(cid){ return data.core.history.filter(function(sn){ return sn.r[cid]; }).map(function(sn){ return sn.r[cid]; }); }
+  function sparkline(vals){
+    var W=96, H=30, p=4, n=vals.length;
+    function x(i){ return n===1 ? W/2 : p+(W-2*p)*i/(n-1); }
+    function y(v){ return p+(H-2*p)*(1-(v-1)/4); }
+    var s = '';
+    if(n>1) s += '<polyline class="sp" points="'+vals.map(function(v,i){ return x(i).toFixed(1)+','+y(v).toFixed(1); }).join(' ')+'"/>';
+    if(n) s += '<circle class="spd" cx="'+x(n-1).toFixed(1)+'" cy="'+y(vals[n-1]).toFixed(1)+'" r="3"/>';
+    return '<svg class="spark" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" aria-hidden="true">'+s+'</svg>';
+  }
+  function planGroups(){
+    var groups = {}, order = [];
+    function g(key, label, cid){ if(!groups[key]){ groups[key] = {key:key, label:label, cid:cid, steps:[]}; order.push(key); } return groups[key]; }
+    function add(grp, list, src){ (list||[]).forEach(function(st){ if((st.t||'').trim()) grp.steps.push({st:st, src:src}); }); }
+    COMPS.forEach(function(c){
+      var list = [];
+      var cr = data.core.rows[c.id]; if(cr) (cr.steps||[]).forEach(function(st){ list.push({st:st, src:'Core matrix'}); });
+      data.sheets.forEach(function(s){ var r = s.rows[c.id]; if(r) (r.steps||[]).forEach(function(st){ list.push({st:st, src:s.title}); }); });
+      list = list.filter(function(x){ return (x.st.t||'').trim(); });
+      if(list.length){ var grp = g(c.id, c.label, c.id); list.forEach(function(x){ grp.steps.push(x); }); }
+    });
+    data.sheets.forEach(function(s){ (s.custom||[]).forEach(function(r){ if((r.label||'').trim()) add(g('x:'+r.label.trim().toLowerCase(), r.label.trim(), null), r.steps, s.title); }); });
+    return order.map(function(k){ return groups[k]; }).filter(function(x){ return x.steps.length; });
+  }
+  function planCard(grp, upd){
+    var today = dayKey(Date.now()), card = h('div',{class:'plan'});
+    var bar = h('div',{class:'fill'}), cnt = h('span',{class:'small'});
+    var nudge = h('div',{class:'nudge'}, h('span',{text:'All steps done. Update your confidence for this competency.'}),
+      h('button',{class:'btn sm',type:'button',text:'Re-rate now',onclick:function(){ mtab='core'; go('matrix'); }}));
+    var top = h('div',{class:'plan-h'}, h('div',{class:'label',text:grp.label}));
+    if(grp.cid){
+      var vals = histVals(grp.cid), box = h('div',{class:'plan-conf'});
+      if(vals.length){ box.innerHTML = sparkline(vals); box.append(h('span',{class:'small',text:(vals.length>1 ? vals[0]+' → '+vals[vals.length-1] : 'now '+vals[0])+' / 5'})); }
+      top.append(box);
+    }
+    card.append(top, h('div',{class:'track',style:'margin:8px 0 4px'}, bar), cnt);
+    var rows = h('div',{class:'dsteps'});
+    var labels = [];
+    grp.steps.forEach(function(x){
+      var st = x.st, due = h('span',{class:'due'}), line;
+      var cb = h('input',{type:'checkbox','aria-label':'Done: '+st.t}); cb.checked = !!st.done;
+      cb.addEventListener('change', function(){ st.done = cb.checked; st.doneAt = st.done ? Date.now() : null; save(); refresh(); upd(); });
+      line = h('label',{class:'dstep'}, cb, h('span',{class:'dt',text:st.t}), h('span',{class:'src',text:x.src}), due);
+      labels.push(function(){
+        line.classList.toggle('done', !!st.done);
+        if(st.done || !st.due){ due.textContent = ''; due.className = 'due'; }
+        else { var od = st.due < today; due.textContent = (od ? 'Overdue · ' : 'Due ')+dayLabel(st.due); due.className = 'due'+(od?' over':''); }
+      });
+      rows.append(line);
+    });
+    card.append(rows, nudge);
+    function refresh(){
+      var done = grp.steps.filter(function(x){ return x.st.done; }).length, tot = grp.steps.length;
+      bar.style.width = (done/tot*100)+'%'; cnt.textContent = done+' of '+tot+(tot===1?' step':' steps')+' done';
+      labels.forEach(function(f){ f(); });
+      var lastDone = Math.max.apply(null, grp.steps.map(function(x){ return x.st.doneAt||0; }));
+      var cr = grp.cid ? data.core.rows[grp.cid] : null;
+      nudge.hidden = !(grp.cid && done===tot && lastDone > ((cr && cr.confAt) || 0));
+    }
+    refresh();
+    return card;
+  }
+  function planSection(){
+    var groups = planGroups(), today = dayKey(Date.now());
+    var sec = h('div',{class:'section'}, h('h2',{text:'My improvement plan'}));
+    if(!groups.length){
+      sec.append(h('div',{class:'panel',style:'margin-top:14px'},
+        h('p',{class:'empty',text:'No plan steps yet. Add steps under “My plan to improve” for any competency in the Skill Matrix, and you can tick them off here.'}),
+        h('div',{style:'margin-top:12px'}, h('button',{class:'btn ghost sm',type:'button',text:'Open Skill Matrix',onclick:function(){ mtab='core'; go('matrix'); }}))));
+      return sec;
+    }
+    var summary = h('p',{class:'hint'});
+    function upd(){
+      var t = 0, d = 0, o = 0;
+      groups.forEach(function(g){ g.steps.forEach(function(x){ t++; if(x.st.done) d++; else if(x.st.due && x.st.due<today) o++; }); });
+      summary.textContent = d+' of '+t+' steps done'+(o ? ' · '+o+' overdue' : '');
+    }
+    upd();
+    function weight(g){ var o = 0, rem = 0; g.steps.forEach(function(x){ if(!x.st.done){ rem++; if(x.st.due && x.st.due<today) o++; } }); return {o:o, rem:rem}; }
+    groups.sort(function(a,b){ var wa = weight(a), wb = weight(b); return (wb.o>0)-(wa.o>0) || wb.rem-wa.rem || a.label.localeCompare(b.label); });
+    sec.append(summary, h('div',{class:'plans'}, groups.map(function(g){ return planCard(g, upd); })));
+    return sec;
+  }
+  function compProgressPanel(){
+    var items = COMPS.map(function(c){
+      var v = histVals(c.id);
+      return h('div',{class:'cp'},
+        h('span',{class:'cp-l',text:c.label}),
+        v.length ? (function(){ var d = h('span',{class:'cp-s'}); d.innerHTML = sparkline(v); return d; })() : h('span',{class:'cp-s'}),
+        h('span',{class:'val'+(v.length>1 && v[v.length-1]>v[0] ? ' up' : ''),text: v.length ? (v.length>1 ? v[0]+' → '+v[v.length-1] : String(v[0])) : '–'}));
+    });
+    return h('div',{class:'panel'}, h('div',{class:'cap',text:'Progress by competency (first check-in to now)'}), h('div',{class:'cps'}, items));
+  }
+
+  // ----- Evidence Bank -----
+  var EV_TYPES = ['Project','Course or training','Work experience','Volunteering','Research or publication','Certification','Other'];
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function evidenceRows(){
+    var rows = [];
+    function comp(cid){ return COMPS.filter(function(x){ return x.id===cid; })[0]; }
+    data.evidence.forEach(function(e){
+      var c = comp(e.cid);
+      rows.push({cid:e.cid, area:c?c.domain:'', comp:c?c.label:'Other', type:e.type, title:e.title, date:e.date||'', desc:e.desc||'', link:e.link||'', source:'Evidence Bank', own:true, ref:e});
+    });
+    COMPS.forEach(function(c){
+      var cr = data.core.rows[c.id];
+      if(cr && (cr.demo||'').trim()) rows.push({cid:c.id, area:c.domain, comp:c.label, type:'Note', title:'How I can demonstrate it', date:'', desc:cr.demo.trim(), link:'', source:'Skill Matrix', own:false});
+      data.sheets.forEach(function(s){
+        var r = s.rows[c.id];
+        if(r && (r.demo||'').trim()) rows.push({cid:c.id, area:c.domain, comp:c.label, type:'Note', title:'For: '+s.title, date:'', desc:r.demo.trim(), link:'', source:'Posting: '+s.title, own:false});
+      });
+    });
+    data.sheets.forEach(function(s){ (s.custom||[]).forEach(function(r){
+      if((r.label||'').trim() && (r.demo||'').trim()) rows.push({cid:null, area:'', comp:r.label.trim(), type:'Note', title:'For: '+s.title, date:'', desc:r.demo.trim(), link:'', source:'Posting: '+s.title, own:false});
+    }); });
+    return rows;
+  }
+  function groupedEvidence(rows){
+    var out = [];
+    Object.keys(DOMAINS).forEach(function(d){
+      COMPS.filter(function(c){ return c.domain===d; }).forEach(function(c){
+        var r = rows.filter(function(x){ return x.cid===c.id; });
+        if(r.length) out.push({area:d+'. '+DOMAINS[d], comp:c.label, rows:r});
+      });
+    });
+    var others = {};
+    rows.filter(function(x){ return !x.cid; }).forEach(function(x){ (others[x.comp.toLowerCase()] = others[x.comp.toLowerCase()] || {area:'Other competencies', comp:x.comp, rows:[]}).rows.push(x); });
+    Object.keys(others).forEach(function(k){ out.push(others[k]); });
+    return out;
+  }
+  function toText(rows){
+    var lines = ['EVIDENCE BANK', 'Generated '+new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}), ''], area = '';
+    groupedEvidence(rows).forEach(function(g){
+      if(g.area!==area){ area = g.area; lines.push(area.toUpperCase()); }
+      lines.push('- '+g.comp);
+      g.rows.forEach(function(r){
+        lines.push('    * '+(r.type!=='Note' ? '['+r.type+(r.date?' · '+r.date:'')+'] ' : '')+r.title+(r.desc?': '+r.desc.replace(/\s*\n\s*/g,' '):'')+(r.link?' ('+r.link+')':'')+(r.source!=='Evidence Bank'?' [from '+r.source+']':''));
+      });
+      lines.push('');
+    });
+    return lines.join('\n');
+  }
+  function toCSV(rows){
+    function q(v){ return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'; }
+    var head = ['Competency','Area','Type','Title','Date','Description','Link','Source'].map(q).join(',');
+    var body = groupedEvidence(rows).reduce(function(acc,g){ return acc.concat(g.rows.map(function(r){
+      return [g.comp, g.area, r.type, r.title, r.date, r.desc, r.link, r.source].map(q).join(',');
+    })); }, []);
+    return '﻿'+[head].concat(body).join('\r\n');
+  }
+  function toDoc(rows){
+    var html = '<html><head><meta charset="utf-8"><title>Evidence Bank</title></head><body style="font-family:Calibri,Arial,sans-serif">'
+      + '<h1>Evidence Bank</h1><p>Generated '+esc(new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}))+'</p>', area = '';
+    groupedEvidence(rows).forEach(function(g){
+      if(g.area!==area){ area = g.area; html += '<h2>'+esc(area)+'</h2>'; }
+      html += '<h3>'+esc(g.comp)+'</h3><ul>';
+      g.rows.forEach(function(r){
+        html += '<li><b>'+esc(r.title)+'</b>'+(r.type!=='Note' ? ' ('+esc(r.type)+(r.date?', '+esc(r.date):'')+')' : '')
+          + (r.desc ? '<br>'+esc(r.desc).replace(/\n/g,'<br>') : '')
+          + (r.link ? '<br><a href="'+esc(r.link)+'">'+esc(r.link)+'</a>' : '')
+          + (r.source!=='Evidence Bank' ? '<br><i>From '+esc(r.source)+'</i>' : '') + '</li>';
+      });
+      html += '</ul>';
+    });
+    return html+'</body></html>';
+  }
+  function download(name, mime, text){
+    try{
+      var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text],{type:mime})); a.download = name;
+      document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    }catch(e){ toast('Download is not available here. Use Copy as text.'); }
+  }
+  function toast(t){ var el = document.getElementById('saved'); el.textContent = t; el.classList.add('show'); clearTimeout(savedTimer); savedTimer = setTimeout(function(){ el.classList.remove('show'); el.textContent = 'Saved'; }, 1800); }
+
+  function evidenceForm(item, cid0, onDone){
+    var isNew = !item;
+    item = item || {id:'e'+Date.now()+Math.floor(Math.random()*1000), cid:cid0||COMPS[0].id, type:EV_TYPES[0], title:'', date:'', desc:'', link:''};
+    var u = item.id;
+    var cs = h('select',{id:u+'-c'}); COMPS.forEach(function(c){ var o = h('option',{value:c.id,text:c.label}); if(c.id===item.cid) o.selected = true; cs.append(o); });
+    var ts = h('select',{id:u+'-t'}); EV_TYPES.forEach(function(t){ var o = h('option',{value:t,text:t}); if(t===item.type) o.selected = true; ts.append(o); });
+    var title = h('input',{type:'text',id:u+'-title',placeholder:'e.g., Co-organized a student One Health symposium'}); title.value = item.title;
+    var date = h('input',{type:'date',id:u+'-date'}); date.value = item.date||'';
+    var desc = h('textarea',{id:u+'-desc',placeholder:'What you did, your role, and the result. Numbers help.'}); desc.value = item.desc||'';
+    var link = h('input',{type:'url',id:u+'-link',placeholder:'https://… (optional)'}); link.value = item.link||'';
+    var err = h('p',{class:'err',hidden:true});
+    return h('div',{class:'panel evform'},
+      h('div',{class:'formgrid two'}, field('Competency',u+'-c',cs), field('Type',u+'-t',ts)),
+      h('div',{class:'formgrid',style:'margin-top:12px'}, field('Title',u+'-title',title), field('Description',u+'-desc',desc),
+        h('div',{class:'formgrid two'}, field('Date (optional)',u+'-date',date), field('Link (optional)',u+'-link',link))),
+      h('div',{class:'row',style:'margin-top:14px'},
+        h('button',{class:'btn',type:'button',text:isNew?'Add to bank':'Save changes',onclick:function(){
+          if(!title.value.trim()){ err.hidden = false; err.textContent = 'Give this evidence a title.'; return; }
+          item.cid = cs.value; item.type = ts.value; item.title = title.value.trim(); item.date = date.value; item.desc = desc.value.trim(); item.link = link.value.trim();
+          if(isNew) data.evidence.push(item);
+          save(); onDone();
+        }}),
+        h('button',{class:'btn ghost',type:'button',text:'Cancel',onclick:onDone}), err));
+  }
+
+  var bankForm = null; // {cid} for a new entry, or {edit:item}
+  function bankView(){
+    var host = h('div');
+    function draw(){
+      host.innerHTML = '';
+      var rows = evidenceRows();
+      var groups = groupedEvidence(rows);
+      var count = {}; rows.forEach(function(r){ if(r.cid) count[r.cid] = (count[r.cid]||0)+1; });
+      var covered = COMPS.filter(function(c){ return count[c.id]; }).length;
+      var done = function(){ bankForm = null; draw(); };
+
+      host.append(h('div',{class:'tiles'},
+        tile(String(rows.length),'Pieces of evidence'),
+        tile(covered+' / '+COMPS.length,'Competencies with evidence'),
+        tile(String(COMPS.length-covered),'Competencies still empty')));
+
+      host.append(h('div',{class:'row',style:'margin:20px 0 6px'},
+        h('button',{class:'btn',type:'button',text:'+ Add evidence',onclick:function(){ bankForm = {cid:null}; draw(); window.scrollTo(0,0); }}),
+        h('button',{class:'btn ghost',type:'button',text:'Download Word (.doc)',onclick:function(){ download('evidence-bank.doc','application/msword',toDoc(rows)); }}),
+        h('button',{class:'btn ghost',type:'button',text:'Download CSV',onclick:function(){ download('evidence-bank.csv','text/csv;charset=utf-8',toCSV(rows)); }}),
+        h('button',{class:'btn ghost',type:'button',text:'Copy as text',onclick:function(){
+          var t = toText(rows);
+          try{ navigator.clipboard.writeText(t).then(function(){ toast('Copied'); }, function(){ toast('Copy is blocked here. Use Download.'); }); }catch(e){ toast('Copy is blocked here. Use Download.'); }
+        }})));
+      host.append(h('p',{class:'small',text:'Downloads include your notes from the Skill Matrix and posting worksheets, labeled by source. Downloads work on the published site; some preview windows block them, so use Copy as text there.'}));
+
+      if(bankForm && !bankForm.edit) host.append(h('div',{style:'margin-top:18px'}, evidenceForm(null, bankForm.cid, done)));
+
+      host.append(h('div',{class:'section'}, h('h2',{text:'Coverage'}),
+        h('div',{class:'gts',style:'margin-top:14px'}, COMPS.map(function(c){
+          var n = count[c.id]||0;
+          return h('div',{class:'gt '+(n>=2?'st-strong':(n===1?'st-build':'st-unrated')),title:c.label+': '+n+' piece'+(n===1?'':'s')},
+            h('span',{class:'gt-l',text:c.label}), h('span',{class:'gt-m',text:n ? n+' piece'+(n===1?'':'s') : 'No evidence yet'}));
+        })),
+        h('div',{class:'legend'}, h('span',null,h('i',{class:'sw st-strong'}),'2 or more'), h('span',null,h('i',{class:'sw st-build'}),'1 piece'), h('span',null,h('i',{class:'sw st-unrated'}),'None yet'))));
+
+      var list = h('div',{class:'section'}, h('h2',{text:'Your evidence'}));
+      if(!groups.length) list.append(h('p',{class:'hint',text:'Nothing here yet. Add a project, course, job or experience and link it to the competency it shows.'}));
+      var areaShown = '';
+      groups.forEach(function(g){
+        if(g.area!==areaShown){ areaShown = g.area; list.append(h('div',{class:'cap',style:'margin:22px 0 8px',text:areaShown})); }
+        var det = h('details',{class:'kwc'}); det.open = true;
+        det.append(h('summary',null, h('span',{class:'kwl',text:g.comp}), h('span',{class:'small',text:g.rows.length+' piece'+(g.rows.length===1?'':'s')})));
+        var body = h('div',{class:'kwb'});
+        g.rows.forEach(function(r){
+          if(r.own && bankForm && bankForm.edit===r.ref){ body.append(evidenceForm(r.ref, null, done)); return; }
+          var card = h('div',{class:'evc'},
+            h('div',{class:'evc-h'}, h('b',{text:r.title}), h('span',{class:'syn',text:r.type}), r.date ? h('span',{class:'small',text:r.date}) : null),
+            r.desc ? h('p',{class:'evc-d',text:r.desc}) : null,
+            r.link ? h('p',null,h('a',{class:'textbtn',href:r.link,target:'_blank',rel:'noopener noreferrer',text:r.link})) : null,
+            h('div',{class:'row'},
+              r.own ? [h('button',{class:'textbtn',type:'button',text:'Edit',onclick:function(){ bankForm = {edit:r.ref}; draw(); }}),
+                       armed(h('button',{class:'textbtn',type:'button'}),'Remove','Click again to remove',function(){ data.evidence = data.evidence.filter(function(x){ return x!==r.ref; }); save(); draw(); })]
+                     : h('span',{class:'small',text:'From '+r.source}))
+          );
+          body.append(card);
+        });
+        det.append(body); list.append(det);
+      });
+      host.append(list);
+    }
+    draw();
+    return page(pagehead([{t:'Home',go:'home'},{t:'Evidence Bank'}], 'Evidence Bank', 'Keep proof of what you can do, organized by competency, ready for your resume, cover letters and interviews.'), host);
+  }
+
   // ----- Skill Matrix -----
   function matrixView(){
     var seg = h('div',{class:'seg',role:'group','aria-label':'Matrix type'},
@@ -927,8 +1281,8 @@
     Object.keys(DOMAINS).forEach(function(d){
       var sec = h('div',{class:'domain'}, h('h2',{text:d+'. '+DOMAINS[d]}));
       COMPS.filter(function(c){ return c.domain===d; }).forEach(function(c){
-        var row = data.core.rows[c.id] || (data.core.rows[c.id] = {conf:0, demo:'', imp:''});
-        var sc = scale('core-'+c.id+'-conf', row.conf, function(v){ row.conf = v; snapshot(); save(); counter.textContent = ratedCount()+' of '+COMPS.length+' rated'; }, 'Confidence in '+c.label);
+        var row = data.core.rows[c.id] || (data.core.rows[c.id] = {conf:0, demo:'', imp:'', steps:[]});
+        var sc = scale('core-'+c.id+'-conf', row.conf, function(v){ row.conf = v; row.confAt = Date.now(); snapshot(); save(); counter.textContent = ratedCount()+' of '+COMPS.length+' rated'; }, 'Confidence in '+c.label);
         sec.append(h('div',{class:'card'},
           h('div',{class:'label',text:c.label}),
           h('div',{class:'desc'}, h('div',{class:'cap',text:'Description of competency'}), h('ul',null,c.desc.map(function(x){ return h('li',{text:x}); }))),
@@ -936,7 +1290,7 @@
           h('div',{class:'scalecap'},h('span',{text:'Not confident'}),h('span',{text:'Very confident'})),
           h('div',{class:'f2'},
             field('How I can demonstrate it','core-'+c.id+'-demo', textarea('core-'+c.id+'-demo', row.demo, 'A project, course, or experience that shows this', function(v){ row.demo = v; })),
-            field('How I can improve','core-'+c.id+'-imp', textarea('core-'+c.id+'-imp', row.imp, 'A concrete next step', function(v){ row.imp = v; }))
+            stepsField('My plan to improve', row.steps = row.steps || [], 'core-'+c.id)
           )));
       });
       out.append(sec);
@@ -1029,13 +1383,13 @@
     var chipWrap = h('div',{class:'chips',style:'margin-bottom:16px'});
     (s.extras||[]).filter(function(x){ return !s.custom.some(function(r){ return r.label===x.label; }); }).forEach(function(x){
       chipWrap.append(h('button',{class:'chip',type:'button',text:'+ '+x.label,title:'Found in the posting',onclick:function(){
-        s.custom.push({label:x.label, imp:x.level, evidence:x.ev[0]||'', conf:0, demo:'', improve:''}); save(); render();
+        s.custom.push({label:x.label, imp:x.level, evidence:x.ev[0]||'', conf:0, demo:'', improve:'', steps:[]}); save(); render();
       }}));
     });
     if(chipWrap.children.length){ other.append(h('div',{class:'cap',text:'Found in this posting'}), chipWrap); }
     s.custom.forEach(function(r, idx){ other.append(customCard(s, r, idx, refreshStrip)); });
     other.append(h('button',{class:'btn ghost',type:'button',text:'+ Add a competency',onclick:function(){
-      s.custom.push({label:'', imp:2, evidence:'', conf:0, demo:'', improve:''}); save(); render();
+      s.custom.push({label:'', imp:2, evidence:'', conf:0, demo:'', improve:'', steps:[]}); save(); render();
     }}));
     wrap.append(other);
 
@@ -1078,7 +1432,7 @@
     card.append(scale(s.id+'-'+c.id+'-conf', r.conf||0, function(v){ r.conf = v; refresh(); refreshStrip(); save(); }, 'Confidence in '+c.label+' for this job'));
     card.append(h('div',{class:'f2'},
       field('How I can demonstrate it', s.id+'-'+c.id+'-demo', textarea(s.id+'-'+c.id+'-demo', r.demo, 'Evidence that matches what this posting asks for', function(v){ r.demo = v; })),
-      field('How I can improve', s.id+'-'+c.id+'-imp2', textarea(s.id+'-'+c.id+'-imp2', r.imp, 'A concrete next step', function(v){ r.imp = v; }))));
+      stepsField('My plan to improve', r.steps = r.steps || [], s.id+'-'+c.id)));
     refresh();
     return card;
   }
@@ -1098,7 +1452,7 @@
     card.append(scale(key+'-conf', r.conf||0, function(v){ r.conf = v; refresh(); refreshStrip(); save(); }, 'Confidence in this competency'));
     card.append(h('div',{class:'f2'},
       field('How I can demonstrate it', key+'-demo', textarea(key+'-demo', r.demo, 'Evidence you could show', function(v){ r.demo = v; })),
-      field('How I can improve', key+'-improve', textarea(key+'-improve', r.improve, 'A concrete next step', function(v){ r.improve = v; }))));
+      stepsField('My plan to improve', r.steps = r.steps || [], key)));
     refresh();
     return card;
   }
@@ -1106,7 +1460,7 @@
   function render(){
     renderNav();
     var main = document.getElementById('main'); main.innerHTML = '';
-    main.append(view==='matrix' ? matrixView() : view==='dash' ? dashView() : view==='kw' ? kwView() : homeView());
+    main.append(view==='matrix' ? matrixView() : view==='dash' ? dashView() : view==='kw' ? kwView() : view==='bank' ? bankView() : homeView());
     var sb = document.getElementById('sampleBtn'); sb.replaceWith(sb.cloneNode(false));
     sb = document.getElementById('sampleBtn');
     if(hasData()) armed(sb, 'Load sample data', 'Replaces your data. Click again', function(){ loadSample(); render(); });
@@ -1114,9 +1468,10 @@
   }
 
   armed(document.getElementById('clearBtn'), 'Clear my saved data', 'Click again to clear everything', function(){
-    data = {core:{rows:{}, history:[]}, sheets:[], sample:false}; persist(); sheetId = null; render();
+    data = {core:{rows:{}, history:[]}, sheets:[], evidence:[], sample:false}; persist(); sheetId = null; render();
   });
 
+  migrate();
   render();
 })();
 </script>
